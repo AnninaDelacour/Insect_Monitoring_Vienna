@@ -1,0 +1,15 @@
+geemap
+geopandas
+jupyter-server-proxy
+keplergl
+leafmap
+localtileserver
+nbserverproxy
+owslib
+palettable
+plotly
+streamlit==1.12.2
+streamlit-bokeh-events
+streamlit-folium
+streamlit-keplergl
+tropycal
