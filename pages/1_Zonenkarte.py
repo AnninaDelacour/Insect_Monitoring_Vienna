@@ -7,8 +7,7 @@ st.set_page_config(layout="wide")
 st.sidebar.title("About")
 st.sidebar.info(
     """
-    Web App URL: <https://geospatial.streamlitapp.com>
-    GitHub repository: <https://github.com/giswqs/streamlit-geospatial>
+    GitHub repository: <https://github.com/AnninaDelacour/bachelor>
     """
 )
 
@@ -16,7 +15,7 @@ st.sidebar.title("Contact")
 st.sidebar.info(
     """
     Annina Ecker:
-    [GitHub](https://github.com/) | [Mastodon](https://twitter.com/) | [LinkedIn](https://www.linkedin.com/in/)
+    [GitHub](https://github.com/AnninaDelacour) | [LinkedIn](https://www.linkedin.com/in/annina-ecker/)
     """
 )
 

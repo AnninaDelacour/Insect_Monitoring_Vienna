@@ -12,8 +12,7 @@ st.set_page_config(layout="wide")
 st.sidebar.title("About")
 st.sidebar.info(
     """
-    Web App URL: <https://geospatial.streamlitapp.com>
-    GitHub repository: <https://github.com/giswqs/streamlit-geospatial>
+    GitHub repository: <https://github.com/AnninaDelacour/bachelor>
     """
 )
 
@@ -21,36 +20,15 @@ st.sidebar.title("Contact")
 st.sidebar.info(
     """
     Annina Ecker:
-    [GitHub](https://github.com/) | [Mastodon](https://twitter.com/) | [LinkedIn](https://www.linkedin.com/in/)
+    [GitHub](https://github.com/AnninaDelacour) | [LinkedIn](https://www.linkedin.com/in/annina-ecker/)
     """
 )
 
 st.title("Windkarte")
 
-# get csv files
-data1 = pd.read_csv('/Users/annina/Downloads/monatlicher_datensatz_windricht_windgeschw_202111_202211.csv')
-data2 = pd.read_csv('/Users/annina/Downloads/MON Stations-Metadaten.csv')
+# get csv file
+filepath = pd.read_csv('https://raw.githubusercontent.com/AnninaDelacour/bachelor/main/df_zamg_21_22.csv')
 
-# rename id-column in data2 to 'station'
-data2.rename(columns={"id":"station"}, inplace=True)
-
-# merge the two files on column 'station'
-output1 = pd.merge(data1, data2, on='station', how="outer")
-
-output1.drop(['Startdatum', 'Enddatum', 'Sonnenschein', 'Bundesland', 'Globalstrahlung', 'Synop', 'Verknüpfungsnummer', 'Startdatum Teilzeitreihe', 
-'Enddatum Teilzeitreihe', 'zusammengesetzt', 'substation', 'Synopstationsnummer'], axis=1, inplace=True)
-
-# rename id-column in data2 to 'station', 'Länge' to 'Longitude, 'Breite' to 'Latitude', and 'Höhe' to 'Height'
-output1.rename(columns={"Länge [°E]":"Longitude"}, inplace=True)
-output1.rename(columns={"Breite [°N]":"Latitude"}, inplace=True)
-output1.rename(columns={"Höhe [m]": "Height"}, inplace=True)
-
-# drop all rows with NaN values
-output2 = output1.dropna()
-
-filepath = output2
-
-# tiles ="stamentoner"
 m = leafmap.Map(center=[47.1133, 11.4147], zoom=8.5)
 
 m.add_heatmap(

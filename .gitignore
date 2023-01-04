@@ -134,4 +134,6 @@ dmypy.json
 
 # secrets
 secrets.env
-config.toml
+.streamlit/
+add_images.py
+database.ini
