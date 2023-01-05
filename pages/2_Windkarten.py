@@ -35,7 +35,7 @@ st.title("Windkarten")
 st.header("Windgeschwindigkeit Monatsmittel")
 
 # Load the data from the CSV file into a Pandas dataframe
-df = pd.read_csv('/Users/annina/Documents/FH/monatl_wdata_2012_2022.csv')
+df = pd.read_csv('https://raw.githubusercontent.com/AnninaDelacour/bachelor/main/monatl_wdata_vv_2012_2022.csv')
 
 # Convert the Latitude, Longitude, and vv columns to numeric values
 df['Latitude'] = pd.to_numeric(df['Latitude'])
@@ -156,7 +156,7 @@ st.markdown("""_______________________________________ """)
 st.header("Zahl der Tage mit Windstärke >= 6 Bft")
 
 # Load the data from the CSV file into a Pandas dataframe
-df = pd.read_csv('/Users/annina/Documents/FH/monatl_wdata_w6_2012_2022.csv')
+df = pd.read_csv('https://raw.githubusercontent.com/AnninaDelacour/bachelor/main/monatl_wdata_w6_2012_2022.csv')
 
 # Convert the Latitude, Longitude, and vv columns to numeric values
 df['Latitude'] = pd.to_numeric(df['Latitude'])
@@ -289,7 +289,7 @@ st.markdown("""_______________________________________ """)
 st.header("Zahl der Tage mit Böen >= 80 km/h")
 
 # Load the data from the CSV file into a Pandas dataframe
-df = pd.read_csv('/Users/annina/Documents/FH/monatl_wdata_v80_2012_2022.csv')
+df = pd.read_csv('https://raw.githubusercontent.com/AnninaDelacour/bachelor/main/monatl_wdata_v80_2012_2022.csv')
 
 # Convert the Latitude, Longitude, and vv columns to numeric values
 df['Latitude'] = pd.to_numeric(df['Latitude'])
