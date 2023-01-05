@@ -1,6 +1,17 @@
 import streamlit as st
 import leafmap.foliumap as leafmap
 import folium
+import psycopg2
+from config import read_config
+
+# Connect to the database
+host = read_config('postgresql', 'host')
+database = read_config('postgresql', 'database')
+user = read_config('postgresql', 'user')
+password = read_config('postgresql', 'password')
+
+conn = psycopg2.connect(host=host, database=database, user=user, password=password)
+cur = conn.cursor()
 
 st.set_page_config(layout="wide")
 
@@ -33,136 +44,216 @@ st.markdown(
     """
 )
 
-
-
-#m = leafmap.Map(tiles="stamenwatercolor", center=[47.1133, 11.4147], zoom=8.5)
 m = leafmap.Map(center=[47.1133, 11.4147], zoom=8.5, layer="Swiss Federal Geoportal Map")
 m.add_basemap('Stamen.Toner')
-#m.add_basemap('BasemapAT.basemap')
-# Esri.DeLorme
-# SwissFederalGeoportal.NationalMapColor
+
+# Select the GeoJSON data from the table
+sql1 = "SELECT ST_AsGeoJSON(wkb_geometry) FROM schigebiete"
+cur.execute(sql1)
+
+# Retrieve all the GeoJSON data as a list of tuples
+geojson_list = cur.fetchall()
+
+# Initialize a folium.FeatureGroup object to hold the GeoJSON features
+schigebiete_layer = folium.FeatureGroup(name='Schigebiete')
+
+# Iterate over the list of tuples and extract the GeoJSON string from each tuple
+for geojson in geojson_list:
+    geojson_str = geojson[0]
+    
+    # Pass the GeoJSON string to the folium.GeoJson function and add the resulting layer to the FeatureGroup object
+    schigebiete_layer.add_child(
+        folium.GeoJson(
+            geojson_str,
+            show = True,
+            name='Schigebiete',
+            style_function=lambda feature: {
+                'aliases': 'Schigebiete',
+                'fillColor': '#10e0ff',
+                'fillOpacity': 0.8,
+                'color': '#00a0d1',
+                'weight': 1,
+                'dashArray': '1, 1'
+            }
+        )
+    )
+
+# Add the FeatureGroup object to the map
+schigebiete_layer.add_to(m)
+
+#-------#-------#-------#-------#-------#-------#
+
+sql2 = "SELECT ST_AsGeoJSON(wkb_geometry) FROM wald_wildzonen"
+cur.execute(sql2)
+
+geojson_list = cur.fetchall()
+
+wild_wald_layer = folium.FeatureGroup(name='Wald- und Wildschutzzonen', show=False)
+
+for geojson in geojson_list:
+    geojson_str = geojson[0]
+    
+    wild_wald_layer.add_child(
+        folium.GeoJson(
+            geojson_str,
+            name='Wald- und Wildschutzzonen',
+            style_function=lambda feature: {
+                'aliases': 'Wald- & Wild-Schutzzonen',
+                'fillColor': '#01d669',
+                'fillOpacity': 0.8,
+                'color': 'black',
+                'weight': 1,
+                'dashArray': '1, 1'
+                }
+            )
+        )
+wild_wald_layer.add_to(m)
+
+#-------#-------#-------#-------#-------#-------#
+
+sql3 = "SELECT ST_AsGeoJSON(wkb_geometry) FROM natura_2000_ffh"
+cur.execute(sql3)
+
+geojson_list = cur.fetchall()
+
+natura_ffh_layer = folium.FeatureGroup(name='Natura 2000 FFH Richtlinie', show=False)
+
+for geojson in geojson_list:
+    geojson_str = geojson[0]
+    
+    natura_ffh_layer.add_child(
+        folium.GeoJson(
+            geojson_str,
+            name='Natura 2000 FFH Richtlinie',
+            style_function=lambda feature: {
+                'aliases': 'Natura 2000 FFH Richtlinie',
+                'fillColor': '#ff7d00',
+                'fillOpacity': 0.5,
+                'color': 'black',
+                'weight': 1,
+                #'dashArray': '5, 5'
+                }
+            )
+        )
+natura_ffh_layer.add_to(m)
+
+#-------#-------#-------#-------#-------#-------#
+
+sql4 = "SELECT ST_AsGeoJSON(wkb_geometry) FROM naturdenkmaeler"
+cur.execute(sql4)
+
+geojson_list = cur.fetchall()
+
+naturdenk_layer = folium.FeatureGroup(name='Naturdenkmäler', show=False)
+
+for geojson in geojson_list:
+    geojson_str = geojson[0]
+    
+    naturdenk_layer.add_child(
+        folium.GeoJson(
+            geojson_str,
+            name='Naturdenkmäler',
+            style_function=lambda feature: {
+                'aliases': 'Naturdenkmäler',
+                'fillColor': '#00ffd0',
+                'fillOpacity': 0.8,
+                'color': 'black',
+                'weight': 0.5,
+                'dashArray': '1, 1'
+                }
+            )
+        )
+naturdenk_layer.add_to(m)
 
 
+#-------#-------#-------#-------#-------#-------#
 
-#csv
+sql5 = "SELECT ST_AsGeoJSON(wkb_geometry) FROM umwelt_schutzgebiete"
+cur.execute(sql5)
 
+geojson_list = cur.fetchall()
 
-#geojson
-schigebiet = '/Users/annina/Downloads/URP_Schigebietsgrenzen.geojson'
-wald_wild_schutzzonen = '/Users/annina/Downloads/Wald_und_Wildschutzzonen.geojson'
-natura_2000_ffh = '/Users/annina/Downloads/Natura_2000_FFH_Richtlinie.geojson'
-naturdenkmaeler = '/Users/annina/Downloads/Naturdenkmaeler_Flaeche.geojson'
-naturparke = '/Users/annina/Downloads/Naturparke.geojson'
-schutzgebiete_umwelt = '/Users/annina/Downloads/Schutzgebiete_Umwelt(1).geojson'
-natura_2000_vogelschutz = '/Users/annina/Downloads/Natura_2000_Vogelschutzrichtlinie.geojson'
-ramsar = '/Users/annina/Downloads/Ramsar_Gebiete.geojson'
+schutz_umwelt_layer = folium.FeatureGroup(name='Schutzgebiete Umwelt', show=False)
 
+for geojson in geojson_list:
+    geojson_str = geojson[0]
+    
+    schutz_umwelt_layer.add_child(
+        folium.GeoJson(
+            geojson_str,
+            name='Schutzgebiete Umwelt',
+            style_function=lambda feature: {
+                'aliases': 'Schutzgebiete Umwelt',
+                'fillColor': '#821cff',
+                'fillOpacity': 0.5,
+                'color': 'black',
+                'weight': .1,
+                'dashArray': '2, 2'
+                }
+            )
+        )
+schutz_umwelt_layer.add_to(m)
 
-#m.add_geojson(schigebiet, layer_name='Schigebiete')
-#m.add_geojson(wald_wild_schutzzonen, layer_name='Wald- und Wildschutzzonen')
+#-------#-------#-------#-------#-------#-------#
 
+sql6 = "SELECT ST_AsGeoJSON(wkb_geometry) FROM natura_2000_vogelschutz"
+cur.execute(sql6)
 
-folium.GeoJson(
-    schigebiet,
-    name='Schigebiete',
-    style_function=lambda feature: {
-        'aliases': 'Schigebiete',
-        'fillColor': '#10e0ff',
-        'fillOpacity': 0.8,
-        'color': '#00a0d1',
-        'weight': 1,
-        'dashArray': '1, 1'
-    }
-).add_to(m)
+geojson_list = cur.fetchall()
 
-folium.GeoJson(
-    wald_wild_schutzzonen,
-    name='Wald- und Wildschutzzonen',
-    show = False,
-    style_function=lambda feature: {
-        'aliases': 'Wald- & Wild-Schutzzonen',
-        'fillColor': '#01d669',
-        'fillOpacity': 0.8,
-        'color': 'black',
-        'weight': 1,
-        'dashArray': '1, 1'
-    }
-).add_to(m)
+vogelschutz_layer = folium.FeatureGroup(name='Natura 2000 Vogelschutzrichtlinie', show=False)
 
-folium.GeoJson(
-    natura_2000_ffh,
-    name='Natura 2000 FFH Richtlinie',
-    show = False,
-    style_function=lambda feature: {
-        'aliases': 'Natura 2000 FFH Richtlinie',
-        'fillColor': '#ff7d00',
-        'fillOpacity': 0.5,
-        'color': 'black',
-        'weight': 1,
-        #dashArray': '5, 5'
-    }
-).add_to(m)
+for geojson in geojson_list:
+    geojson_str = geojson[0]
+    
+    vogelschutz_layer.add_child(
+        folium.GeoJson(
+            geojson_str,
+            name='Natura 2000 Vogelschutzrichtlinie',
+            style_function=lambda feature: {
+                'aliases': 'Natura 2000 Vogelschutzrichtlinie',
+                'fillColor': '#ffce00',
+                'fillOpacity': 0.4,
+                'color': '#ffb700',
+                'weight': 0.8,
+                'dashArray': '1, 1'
+                }
+            )
+        )
+vogelschutz_layer.add_to(m)
 
-folium.GeoJson(
-    naturdenkmaeler,
-    name='Naturdenkmäler',
-    show = False,
-    style_function=lambda feature: {
-        'aliases': 'Naturdenkmäler',
-        'fillColor': '#00ffd0',
-        'fillOpacity': 0.8,
-        'color': 'black',
-        'weight': 0.5,
-        'dashArray': '1, 1'
-    }
-).add_to(m)
+#-------#-------#-------#-------#-------#-------#
 
-folium.GeoJson(
-    schutzgebiete_umwelt,
-    name='Schutzgebiete Umwelt',
-    show = False,
-    style_function=lambda feature: {
-        'aliases': 'Schutzgebiete Umwelt',
-        'fillColor': '#821cff',
-        'fillOpacity': 0.5,
-        'color': 'black',
-        'weight': .1,
-        'dashArray': '2, 2'
-    }
-).add_to(m)
+sql7 = "SELECT ST_AsGeoJSON(wkb_geometry) FROM ramsar_gebiete"
+cur.execute(sql7)
 
-folium.GeoJson(
-    natura_2000_vogelschutz,
-    name='Natura 2000 Vogelschutzrichtlinie',
-    show = False,
-    style_function=lambda feature: {
-        'aliases': 'Natura 2000 Vogelschutzrichtlinie',
-        'fillColor': '#ffce00',
-        'fillOpacity': 0.4,
-        'color': '#ffb700',
-        'weight': 0.8,
-        'dashArray': '1, 1'
-    }
-).add_to(m)
+geojson_list = cur.fetchall()
 
-folium.GeoJson(
-    ramsar,
-    name='Ramsar (Feuchtgebiete)',
-    show = False,
-    style_function=lambda feature: {
-        'aliases': 'Ramsar (Feuchtgebiete)',
-        'fillColor': '#0d41e1',
-        'fillOpacity': 0.7,
-        'color': '#00aaff',
-        'weight': 0.8,
-        'dashArray': '1, 1'
-    }
-).add_to(m)
+ramsar_layer = folium.FeatureGroup(name='Ramsar (Feuchtgebiete)', show=False)
+
+for geojson in geojson_list:
+    geojson_str = geojson[0]
+    
+    ramsar_layer.add_child(
+        folium.GeoJson(
+            geojson_str,
+            name='Ramsar (Feuchtgebiete)',
+            style_function=lambda feature: {
+                'aliases': 'Ramsar (Feuchtgebiete)',
+                'fillColor': '#0d41e1',
+                'fillOpacity': 0.7,
+                'color': '#00aaff',
+                'weight': 0.8,
+                'dashArray': '1, 1'
+                }
+            )
+        )
+ramsar_layer.add_to(m)
 
 # Creating Legend for Map
 
 legend_dict = {
-    "Schigebeite": "10e0ff",
+    "Schigebiete": "10e0ff",
     "Wald- und Wildschutzzonen": "01d669",
     "Natura 2000 FFH Richtlinien": "ff7d00",
     "Naturdenkmäler": "00ffd0",
@@ -191,3 +282,6 @@ m.add_legend(
 )
 
 m.to_streamlit(height=800)
+
+cur.close()
+conn.close()
