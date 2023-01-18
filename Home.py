@@ -212,6 +212,6 @@ Wie schon der 14. Dalai Lama (Tenzin Gyatso) sagte:<br>
 
 st.markdown("""
 <span style="color: #2cb978; font-variant: italic; font-size: 30px;">
-"Falls du glaubst, dass du zu klein bist, um etwas zu bewirken, dann versuche mal zu schlafen, 
-<br>wenn eine Mücke im Raum ist."</span>
+"Falls du glaubst, dass du zu klein bist, um etwas zu bewirken, 
+<br>dann versuche mal zu schlafen, wenn eine Mücke im Raum ist."</span>
 """, unsafe_allow_html=True)
