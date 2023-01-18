@@ -8,9 +8,11 @@ import branca
 import branca.colormap as cm
 import matplotlib.pyplot as plt
 import datetime as dt
+import datetime
 from dateutil.relativedelta import relativedelta
 
 st.set_page_config(layout="wide")
+
 
 st.sidebar.title("About")
 st.sidebar.info(
@@ -54,24 +56,25 @@ m = leafmap.Map(center=[47.1133, 11.4147], zoom=8.5)
 # Get a list of the unique month and year values in the 'month_year' column
 month_year_values = df['month_year'].unique()
 
+
 @st.cache
 def get_selected_month_year_data(selected_month_year):
-    # Get the selected month and year from the list of unique values
-    selected_month_year_value = month_year_values[int(selected_month_year)]
-
     # Filter the data to only include rows with the selected month and year
-    filtered_df = df[df['month_year'] == selected_month_year_value]
-    
-    return selected_month_year_value, filtered_df
+    filtered_df = df[df['month_year'] == selected_month_year]
+    return filtered_df
 
 
-# Use the st.slider function to create a slider for selecting the month and year
-selected_month_year = st.slider("Wähle Jahr/Monat (beginnend im Jänner 2012):", 
-0, len(month_year_values) - 1, 0, 1, key='windgeschwindigkeits-slider-key')
+# ---- Date Picker ---- #
+
+selected_month_year = st.selectbox("Wähle Jahr/Monat (beginnend im Jänner 2012):", month_year_values, key='windgeschwindigkeits-datepicker-key')
 
 # Get the selected month and year data
-selected_month_year_value, filtered_df = get_selected_month_year_data(selected_month_year)
-st.write(f"Derzeitiges Jahr/Monat: {selected_month_year_value}")
+filtered_df = get_selected_month_year_data(selected_month_year)
+st.write(f"Derzeitiges Jahr/Monat: {selected_month_year}")
+
+filtered_df = df[df['month_year'] == selected_month_year]
+
+# ---- ********** ---- #
 
 # Create a GeoJSON feature collection for the filtered data
 geo_json_data = {
@@ -124,7 +127,8 @@ colormap.add_to(m)
 
 m.to_streamlit(height=700)
 
-st.markdown(""" Da moderne Windkraftanlagen fast alle nur drei Rotorblätter haben, 
+st.markdown(""" 
+Da moderne Windkraftanlagen fast alle nur drei Rotorblätter haben, 
 benötigen sie zum Anlaufen eine Windgeschwindigkeit von mindestens vier bis fünf Meter pro Sekunde.
 Dadurch wird der Raum für mögliche Standorte von Windenergieanlagen begrenzt.
 Damit ein Windrad sich dreht, braucht es kontinuierlich eine bestimmte Windgeschwindigkeit von etwa 3 Metern pro Sekunde.
@@ -144,7 +148,8 @@ um die Schnelllaufzahl konstant und damit den Wirkungsgrad optimal zu halten.
 Quellen:
 - <https://www.stadtwerke-muenster.de/blog/energie/warum-sich-ein-windrad-nicht-immer-dreht/>
 - <https://www.wind-energie.de/themen/anlagentechnik/funktionsweise/leistungsbegrenzung/>
-""")
+
+""", unsafe_allow_html=True)
 
 #-------#-------#-------#-------#-------#-------#-------#
 
@@ -175,24 +180,26 @@ m = leafmap.Map(center=[47.1133, 11.4147], zoom=8.5)
 # Get a list of the unique month and year values in the 'month_year' column
 month_year_values = df['month_year'].unique()
 
+
 @st.cache
 def get_selected_month_year_data(selected_month_year):
-    # Get the selected month and year from the list of unique values
-    selected_month_year_value = month_year_values[int(selected_month_year)]
-
     # Filter the data to only include rows with the selected month and year
-    filtered_df = df[df['month_year'] == selected_month_year_value]
-    
-    return selected_month_year_value, filtered_df
+    filtered_df = df[df['month_year'] == selected_month_year]
+    return filtered_df
 
 
-# Use the st.slider function to create a slider for selecting the month and year
-selected_month_year = st.slider("Wähle Jahr/Monat (beginnend im Jänner 2012):", 
-0, len(month_year_values) - 1, 0, 1, key='windstaerke-slider-key')
+# ---- Date Picker ---- #
+
+selected_month_year = st.selectbox("Wähle Jahr/Monat (beginnend im Jänner 2012):", month_year_values, 
+key='windboeen-datepicker-key')
 
 # Get the selected month and year data
-selected_month_year_value, filtered_df = get_selected_month_year_data(selected_month_year)
-st.write(f"Derzeitiges Jahr/Monat: {selected_month_year_value}")
+filtered_df = get_selected_month_year_data(selected_month_year)
+st.write(f"Derzeitiges Jahr/Monat: {selected_month_year}")
+
+filtered_df = df[df['month_year'] == selected_month_year]
+
+# ---- ********** ---- #
 
 # Create a GeoJSON feature collection for the filtered data
 geo_json_data = {
@@ -277,7 +284,6 @@ Quellen:
 - <https://de.wikipedia.org/wiki/Beaufortskala>
 
 """)
-
 #-------#-------#-------#-------#-------#-------#-------#
 
 
@@ -308,24 +314,26 @@ m = leafmap.Map(center=[47.1133, 11.4147], zoom=8.5)
 # Get a list of the unique month and year values in the 'month_year' column
 month_year_values = df['month_year'].unique()
 
+
 @st.cache
 def get_selected_month_year_data(selected_month_year):
-    # Get the selected month and year from the list of unique values
-    selected_month_year_value = month_year_values[int(selected_month_year)]
-
     # Filter the data to only include rows with the selected month and year
-    filtered_df = df[df['month_year'] == selected_month_year_value]
-    
-    return selected_month_year_value, filtered_df
+    filtered_df = df[df['month_year'] == selected_month_year]
+    return filtered_df
 
 
-# Use the st.slider function to create a slider for selecting the month and year
-selected_month_year = st.slider("Wähle Jahr/Monat (beginnend im Jänner 2012):", 
-0, len(month_year_values) - 1, 0, 1, key='windboen-slider-key')
+# ---- Date Picker ---- #
+
+selected_month_year = st.selectbox("Wähle Jahr/Monat (beginnend im Jänner 2012):", month_year_values, 
+key='windstaerke-datepicker-key')
 
 # Get the selected month and year data
-selected_month_year_value, filtered_df = get_selected_month_year_data(selected_month_year)
-st.write(f"Derzeitiges Jahr/Monat: {selected_month_year_value}")
+filtered_df = get_selected_month_year_data(selected_month_year)
+st.write(f"Derzeitiges Jahr/Monat: {selected_month_year}")
+
+filtered_df = df[df['month_year'] == selected_month_year]
+
+# ---- ********** ---- #
 
 # Create a GeoJSON feature collection for the filtered data
 geo_json_data = {
