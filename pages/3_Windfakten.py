@@ -4,21 +4,21 @@ from streamlit_folium import st_folium
 import leafmap.foliumap as leafmap
 import pandas as pd
 import folium
-import psycopg2
+#import psycopg2
 import base64
 from config import read_config
 
 # Connect to the database
-host = read_config('postgresql', 'host')
-database = read_config('postgresql', 'database')
-user = read_config('postgresql', 'user')
-password = read_config('postgresql', 'password')
+#host = read_config('postgresql', 'host')
+#database = read_config('postgresql', 'database')
+#user = read_config('postgresql', 'user')
+#password = read_config('postgresql', 'password')
 
-conn = psycopg2.connect(host=host, database=database, user=user, password=password)
+#conn = psycopg2.connect(host=host, database=database, user=user, password=password)
 
 
 #conn = psycopg2.connect(database='bachelor', user='postgres', password='', host='localhost')
-cur = conn.cursor()
+#cur = conn.cursor()
 
 st.set_page_config(layout="wide")
 
@@ -62,17 +62,20 @@ st.header("Durchschnittliche Windgeschwindigkeiten")
 
 
 # Retrieve BLOB data from the database.
-sql1 = 'SELECT img FROM gwa_images WHERE id = 3'
-cur.execute(sql1, ('data'))
-data = cur.fetchone()[0]
-austria_wind_speed = data.tobytes()
+#sql1 = 'SELECT img FROM gwa_images WHERE id = 3'
+#cur.execute(sql1, ('data'))
+#data = cur.fetchone()[0]
+#austria_wind_speed = data.tobytes()
 
-sql2 = 'SELECT img FROM gwa_images WHERE id = 7'
-cur.execute(sql2, ('data'))
-data = cur.fetchone()[0]
-tirol_wind_speed = data.tobytes()
+#sql2 = 'SELECT img FROM gwa_images WHERE id = 7'
+#cur.execute(sql2, ('data'))
+#data = cur.fetchone()[0]
+#tirol_wind_speed = data.tobytes()
 
 col1, col2 = st.columns(2)
+
+austria_wind_speed = 
+tirol_wind_speed = 
 
 with col1:
     st.header("Tirol")
@@ -88,7 +91,11 @@ global_windatlas_url = "https://globalwindatlas.info/en/area/Austria"
 st.markdown("""
 Die durchschnittliche Windgeschwindigkeit ist ein Maß für die Ressource Wind.
 Höhere Geschwindigkeiten sind normalerweise ein Indikator, dass es ausreichend Windressourcen gibt.
-Ein genaueres Bild der Situation gibt jedoch die Windenergiedichte wieder über die verfügbaren Ressourcen.
+Ein genaueres Bild der Situation gibt jedoch die Windenergiedichte wieder über die verfügbaren Ressourcen.<br>
+<br>
+Wie man im Vergleich zwischen Tirol und gesamt Österreich sehen kann, gibt es vor allem in den höher gelegenen Regionen der Alpen
+potentiell viele Standorte, um Windräder zur Gewinnung erneuerbarer Energie aufzustellen. Auch in tiefer gelegenen Regionen Tirols
+wäre Potential vorhanden.
 
 Quelle: <https://globalwindatlas.info/en/about/method>
 """)

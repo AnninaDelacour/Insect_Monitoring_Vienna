@@ -106,6 +106,50 @@ st.markdown("""
 _________________________________________________________________
 """)
 
+
+st.header("Können Windräder nicht gefährlich sein für Tiere? Verschandeln sie nicht zusätzlich das Landschaftsbild?")
+
+st.markdown(""" 
+[Wenn wir unsere Natur schützen und erhalten wollen](https://windfakten.at/?xmlval_ID_KEY[0]=1272), darf in dieser Diskussion die Frage bezüglich des allg. Natur- und 
+Artenschutzes nicht fehlen.<br>
+[Windräder können potentiell für Tiere ein Riskio darstellen](https://naturschutz.ch/news/forschung/windturbinen-auf-stand-by-weniger-kollisionen-mit-fledermaeusen/123806). Es ist faktisch nicht wahr, dass es keinerlei Auswirkungen hat;
+Wald- und Wildtiere ändern ebenso ihr Verhalten und passen sich an wie auch ihre hochentwickelten Nachbarn - wir Menschen.
+Jedoch können nicht alle gleich gut oder schnell ihr Verhalten anpassen. Zudem erleben wir seit Jahren, dass mehr und mehr Arten 
+aussterben oder davon bedroht sind, auszusterben. Da ein gesundes Ökosystem ein komplexes System darstellt, zu dem Insekten, Vögel,
+Hirsche, Wölfe, Luchse uvm., gehören, braucht es den Dialog zwischen verschiedenen Expertinnen und Experten, die diese Themen seit 
+vielen Jahren eingehend studieren und sich auch mit der Situation in unseren Nachbar\:innenländern befassen (Schweiz, Italien, Deutschland).
+<br>
+Allerdings gilt dies alles nicht nur für Windenergie: [Auch bezüglich Wasserkraft sollten wir nicht die Augen davor verschließen, dass 
+Schäden für die Umwelt entstehen.](https://naturschutz.ch/news/natur/jeder-fuenfte-fisch-stirbt-bei-der-passage-von-wasserkraftturbinen/165366)<br>
+
+Auch wenn [Lobbyist\:innen aus der Kohle- und Erdölindustrie versuchen, nach wie vor ihre eigene Agenda durchzubringen](https://www.lobbycontrol.de/lobbyismus-und-klima/lobbyismus-bremst-klimaschutz-problematische-naehe-zwischen-fossiler-industrie-und-politik-92893/), gibt es 
+viele Personen, die an [besseren Lösungen](https://link.springer.com/article/10.1007/s41064-021-00141-4) forschen. Wir sollten ihnen 
+endlich die Möglichkeit geben, sich vor einem breiteren Publikum zu äußern. Und genau das sollten wir von unseren Politiker\:innen verlangen:
+Eine öffentliche Debatte, bei der auch WIR mitreden und gehört werden.
+<br>
+
+Ein nicht zu vernachlässigendes Thema ist auch das Landschaftsbild, das mittel- bis längerfristig 
+durch Windräder verändert wird. Auch wenn Geschmäcker verschieden sind, so ist es doch essentiell notwendig, diese Debatte 
+auf persönlicher, aber auch politischer Ebene zu führen. Eine [Studie aus dem Jahr 2021](https://www.mdpi.com/2073-445X/10/7/693),
+die sich mit dem Tourismus in Island beschäftigt hinsichtlich der Frage, welche Auswirkungen das Aufstellen von Windrädern auf 
+der Insel hätte. Die befragten Personen waren im Schnitt alle sehr negativ eingestellt, denn ihrer Meinung nach kämen Tourist\:innen
+vor allem deswegen gerne nach Island, um "unberührte Natur" vorzufinden. <br>
+Man sollte nicht leichtfertig mit diesem Thema umgehen, denn der Erholungsfaktor in manchen Regionen ist von wirtschaftlich großer Bedeutung.
+<br>
+<br>
+[Aber auch hier gibt es bereits Menschen, die mithilfe innovativer Ideen helfen wollen,](https://enerkite.de/)
+ solche und ähnliche Debatten zu lösen: [KiteKraft](https://www.kitekraft.de/de/fliegende-windkraft)
+
+
+
+""", unsafe_allow_html=True)
+
+
+st.markdown("""
+_________________________________________________________________
+""")
+
+
 st.header("Und was ist mit Wasserkraft? Ich dachte, Österreich sei ein \"Wasserkraft-Land\"...")
 
 st.warning("""

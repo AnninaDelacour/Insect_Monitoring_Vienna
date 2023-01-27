@@ -10,6 +10,9 @@ import matplotlib.pyplot as plt
 import datetime as dt
 import datetime
 from dateutil.relativedelta import relativedelta
+import rasterio
+import rasterio.warp
+import matplotlib.colors as mcolors
 
 st.set_page_config(layout="wide")
 
@@ -31,10 +34,29 @@ st.sidebar.info(
 
 st.title("Windkarten")
 
-# get csv file
-# filepath = pd.read_csv('https://raw.githubusercontent.com/AnninaDelacour/bachelor/main/df_zamg_21_22.csv')
-
 st.header("Windgeschwindigkeit Monatsmittel")
+
+st.markdown(""" 
+Die hier gezeigten Karten spiegeln unterschiedliche Werte in Bezug auf Wind wieder. Die Daten stammen aus der Datenbank
+des [DataHubs von ZAMG](https://data.hub.zamg.ac.at/). Dargestellt werden die unterschiedlichen Daten als sog. Heatmap;
+so soll eine erste grobe Einschätzung der Windgeschwindigkeit etc., an verschiedenen Standorten in Tirol ermöglicht werden.
+""", unsafe_allow_html=True)
+
+st.markdown("""_______________________________________ """)
+
+with st.expander("HOW TO USE THE MAP:"):
+    st.write(""" Mittels der Dropdown-Liste können verschiedene Monate, vom Jänner 2012 beginnend bis Jänner 2022 ausgewählt werden.""")
+    st.image("/Users/annina/Downloads/windkarte.gif")
+
+
+# Color gradient for heatmap 
+colors = ['#9e0142', '#cb334d', '#f57245', '#fdbf6f', '#fff2aa', '#eaf79e', '#a4daa4', '#54aead', '#4d65ad', '#5e4fa2']
+color_dict = {}
+
+for i in range(len(colors)):
+    color_dict[round(i/len(colors), 1)] = colors[i]
+
+#-------#-------#-------#-------#-------#-------#-------#
 
 # Load the data from the CSV file into a Pandas dataframe
 df = pd.read_csv('https://raw.githubusercontent.com/AnninaDelacour/bachelor/main/monatl_wdata_vv_2012_2022.csv')
@@ -99,22 +121,13 @@ HeatMap(
     longitude="Longitude",
     value="vv",
     radius=30,
-    gradient= {
-        0.0: '#f7fcfd',
-        0.10: '#fff7fb',
-        0.20: '#e0ecf4',
-        0.30: '#bfd3e6',
-        0.40: '#9ebcda',
-        0.50: '#8c96c6',
-        0.60: '#8c6bb1',
-        0.70: '#88419d',
-        0.80: '#810f7c',
-        0.90: '#4d004b',
-        1.0: '#49006a'
-    },
+    blur= 10,
+    gradient = color_dict,
 ).add_to(folium.FeatureGroup(name="Windgeschwindigkeit Monatsmittel")).add_to(m)
 
-colors = ['#f7fcfd', '#fff7fb', '#e0ecf4', '#bfd3e6', '#9ebcda', '#8c96c6', '#8c6bb1', '#88419d', '#810f7c', '#4d004b', '#49006a']
+
+colors = ['#9e0142', '#cb334d', '#f57245', '#fdbf6f', '#fff2aa', '#eaf79e', 
+              '#a4daa4', '#54aead', '#4d65ad', '#5e4fa2']
 vmin = 0
 vmax = 12.4
 
@@ -146,14 +159,14 @@ Mit zunehmender Windgeschwindigkeit erhöht sich auch gleichermaßen die Drehzah
 um die Schnelllaufzahl konstant und damit den Wirkungsgrad optimal zu halten.
 
 Quellen:
-- <https://www.stadtwerke-muenster.de/blog/energie/warum-sich-ein-windrad-nicht-immer-dreht/>
-- <https://www.wind-energie.de/themen/anlagentechnik/funktionsweise/leistungsbegrenzung/>
+- [Stadtwerke Münster - Warum sich ein Windrad nicht immer dreht](https://www.stadtwerke-muenster.de/blog/energie/warum-sich-ein-windrad-nicht-immer-dreht/)
+- [WindEnergie - Funktionsweise: Leistungsbegrenzung und -regelung von Windenergieanlagen](https://www.wind-energie.de/themen/anlagentechnik/funktionsweise/leistungsbegrenzung/)
 
 """, unsafe_allow_html=True)
 
-#-------#-------#-------#-------#-------#-------#-------#
-
 st.markdown("""_______________________________________ """)
+
+#-------#-------#-------#-------#-------#-------#-------#
 
 # get csv file
 # filepath = pd.read_csv('https://raw.githubusercontent.com/AnninaDelacour/bachelor/main/df_zamg_21_22.csv')
@@ -223,23 +236,14 @@ HeatMap(
     latitude="Latitude",
     longitude="Longitude",
     value="w6",
-    radius=20,
-    gradient= {
-        0.0: '#ffffe5',
-        0.10: '#fff7bc',
-        0.20: '#ffffcc',
-        0.30: '#ffeda0',
-        0.40: '#fed976',
-        0.50: '#feb24c',
-        0.60: '#fd8d3c',
-        0.70: '#fc4e2a',
-        0.80: '#e31a1c',
-        0.90: '#bd0026',
-        1.0: '#800026'
-    },
+    radius=30,
+    blur=10,
+    gradient= color_dict,
 ).add_to(folium.FeatureGroup(name="Windgeschwindigkeit Monatsmittel")).add_to(m)
 
-colors = ['#ffffe5', '#fff7bc', '#ffffcc', '#ffeda0', '#fed976', '#feb24c', '#fd8d3c', '#fc4e2a', '#e31a1c', '#bd0026', '#800026']
+
+colors = ['#9e0142', '#cb334d', '#f57245', '#fdbf6f', '#fff2aa', '#eaf79e', 
+              '#a4daa4', '#54aead', '#4d65ad', '#5e4fa2']
 vmin = 1.0
 vmax = 26.0
 
@@ -280,10 +284,10 @@ Der Pitchwinkel nimmt mit der Windgeschwindigkeit zu (von 0° bis circa 30 °) u
 dass die Leistungsabgabe der Windenergieanlage konstant bei Nennleistung bleibt.
 
 Quellen: 
-- <https://www.wind-energie.de/themen/anlagentechnik/funktionsweise/leistungsbegrenzung/>
-- <https://de.wikipedia.org/wiki/Beaufortskala>
+- siehe Quelle oben "WindEnergie - Leistungsbegrenzung", und: [WindEnergie - Energieumwandlung](https://www.wind-energie.de/themen/anlagentechnik/funktionsweise/energiewandlung/)
+- [Wikipedia - Beaufortskala](https://de.wikipedia.org/wiki/Beaufortskala)
 
-""")
+""", unsafe_allow_html=True)
 #-------#-------#-------#-------#-------#-------#-------#
 
 
@@ -357,23 +361,13 @@ HeatMap(
     latitude="Latitude",
     longitude="Longitude",
     value="v80",
-    radius=25,
-    gradient= {
-        0.0: '#f7fcfd',
-        0.10: '#f7fcf5',
-        0.20: '#e0f3db',
-        0.30: '#e5f5e0',
-        0.40: '#c7e9c0',
-        0.50: '#a1d99b',
-        0.60: '#74c476',
-        0.70: '#41ab5d',
-        0.80: '#238b45',
-        0.90: '#006d2c',
-        1.0: '#00441b'
-    },
+    radius=30,
+    blur=10,
+    gradient= color_dict,
 ).add_to(folium.FeatureGroup(name="Anzahl Tage mit Windböen >= 80 km/h")).add_to(m)
 
-colors = ['#f7fcfd', '#f7fcf5', '#e0f3db', '#e5f5e0', '#c7e9c0', '#a1d99b', '#74c476', '#41ab5d', '#238b45', '#006d2c', '#00441b']
+colors = ['#9e0142', '#cb334d', '#f57245', '#fdbf6f', '#fff2aa', '#eaf79e', 
+              '#a4daa4', '#54aead', '#4d65ad', '#5e4fa2']
 vmin = 1.0
 vmax = 22.0
 
@@ -390,5 +384,5 @@ st.markdown("""
 Bei Sturm (ab 25 m/s) ist der Wind so stark, dass die Windenergieanlage abgeschaltet werden muss, 
 um eventuelle Schäden zu vermeiden. Der Pitchwinkel ist nahezu 90°; die Blätter sind in Fahnenstellung.
 
-Quelle: <https://www.wind-energie.de/themen/anlagentechnik/funktionsweise/leistungsbegrenzung/>
-""")
+Quelle: [WindEnergie - Widerstands- und Auftriebsläufer ](https://www.wind-energie.de/themen/anlagentechnik/funktionsweise/widerstandlaeufer-auftriebslaeufer/)
+""", unsafe_allow_html=True)

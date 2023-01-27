@@ -33,16 +33,26 @@ st.sidebar.info(
 st.title("Zonenkarte Tirol")
 st.markdown(
     """
-    Mithilfe des Karten-Layermenüs (Karte: rechts oben) können unterschiedliche Layer ein- und ausgeschaltet werden.
-    Dadurch ist es möglich einen Überblick zu erhalten, wo sich in Tirol z.B. Schi- und Umweltschutzgebiete befinden.
+    Die <strong>Zonenkarte Tirol</strong> soll als Übersichtshilfe dienen, um einen Eindruck zu erhalten, 
+    welche unterschiedlichen Zonen, Schutzgebiete etc., existieren. Diese sind von großer Bedeutung und sind eine Orientierungshilfe,
+    um so direkt zu erkennen, wo potentielle Standortmöglichkeiten zur Errichtung von Kraftwerken für die Abschöpfung von Windenergie sind.
+    <br>
+    Zum Beispiel:<br>
+    Überall dort, wo Schigebiete existieren, ist Infrastruktur prinzipiell vorhanden. Je nach Größe des Schigebiets wurden 
+    auch somit bereits Schwertransportgüter auf Berge gebracht, womit es grundsätzlich möglich ist, auch Windräder hinauf zu transportieren.
+    <br>
+    Viele Schigebiete grenzen direkt an Naturschutzgebiete oder befinden sich inmitten dieser. Auch diesen Fakt gilt es genauer 
+    zu prüfen und hinterfragen; besonders, wenn es um ein zukünftig gesundes und nachhaltiges Miteinander für Mensch und Tier geht.
+    <br>
 
-
-    
     Die hier verwendeten Daten wurden von https://data-tiris.opendata.arcgis.com/ erhoben.
-    
 
-    """
-)
+    """, unsafe_allow_html=True)
+
+with st.expander("HOW TO USE THE MAP:"):
+    st.write(""" Mithilfe des Karten-Layermenüs (Karte: rechts oben) können unterschiedliche Layer ein- und ausgeschaltet 
+    werden.""")
+    st.image("/Users/annina/Downloads/zonenkarte.gif")
 
 m = leafmap.Map(center=[47.1133, 11.4147], zoom=8.5, layer="Swiss Federal Geoportal Map")
 m.add_basemap('Stamen.Toner')
@@ -250,6 +260,36 @@ for geojson in geojson_list:
         )
 ramsar_layer.add_to(m)
 
+#-------#-------#-------#-------#-------#-------#
+
+sql7 = "SELECT ST_AsGeoJSON(wkb_geometry) FROM wildruheflaechen"
+cur.execute(sql7)
+
+geojson_list = cur.fetchall()
+
+wildruhefl_layer = folium.FeatureGroup(name='Wildruheflächen', show=False)
+
+for geojson in geojson_list:
+    geojson_str = geojson[0]
+    
+    wildruhefl_layer.add_child(
+        folium.GeoJson(
+            geojson_str,
+            name='Wildruheflächen',
+            style_function=lambda feature: {
+                'aliases': 'Wildruhefläclhen',
+                'fillColor': '#ff304f',
+                'fillOpacity': 0.4,
+                'color': '#ff304f',
+                'weight': 0.9,
+                #'dashArray': '1, 1'
+                }
+            )
+        )
+wildruhefl_layer.add_to(m)
+
+#-------#-------#-------#-------#-------#-------#
+
 # Creating Legend for Map
 
 legend_dict = {
@@ -260,6 +300,7 @@ legend_dict = {
     "Schutzgebiete Umwelt": "ffce00",
     "Natura 2000 Vogelschutzrichtlinie": "ffb700",
     "Ramsar (Feuchtgebiete)": "00aaff",
+    "Wildruheflächen": "ff304f"
 }
 
 style = {
