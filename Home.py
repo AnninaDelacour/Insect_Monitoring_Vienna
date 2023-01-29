@@ -229,6 +229,8 @@ Wer lieber Videos schaut, kann sich beispielsweise von Kurzgesagt einiges ansehe
 
 kurzgesagt_de_fix_climate = "https://www.youtube.com/watch?v=FvjbhiILmPk"
 kurzgesagt_de_nuclear = "https://www.youtube.com/watch?v=vcsmWBqa2LQ"
+wdr_mailab = "https://www.youtube.com/watch?v=oJ1zm65u-ck"
+quarks = "https://www.youtube.com/watch?v=itllxeBM8ro"
 
 col1, col2 = st.columns(2)
 
@@ -236,21 +238,30 @@ with col1:
     st.video(kurzgesagt_de_fix_climate)
 
 with col2:
+    st.video(wdr_mailab)
+
+col3, col4 = st.columns(2)
+
+with col3:
     st.video(kurzgesagt_de_nuclear)
+
+with col4:
+    st.video(quarks)
 
 st.markdown("""
 _________________________________________________________________
 """)
 
 st.markdown("""
-Je mehr Menschen darüber sprechen, je mehr Menschen sich informieren (können) und aufgeklärt diesem Thema gegenübertreten,
+[Je mehr Menschen darüber sprechen](https://www.youtube.com/watch?v=VxOSGe8HG8o), je mehr Menschen sich informieren (können) und aufgeklärt diesem Thema gegenübertreten,
 desto schwerer wird es für Politiker und Politikerinnen, diesem Bereich aus dem Weg zu gehen und fadenscheinige Argumente 
 zu liefern.<br>
 <b>Daher ist die eigenständige Aufklärung und das "unter die Leute bringen" so wichtig!</b><br>
 
 <b>Du</b> kannst jederzeit deinen Beitrag leisten, auf vielfältigste Art und Weise!<br>
 Nachhaltiger und bewusster Konsum (von Lebensmittel, Kleidung, Elektro-Geräte, usw.).
-<br>Aber auch, wenn du dich selber informierst und mit anderen austauscht.<br><br>
+<br>Aber auch, wenn du [dich selber informierst und mit anderen austauscht](https://www.youtube.com/watch?v=sTPSM5f23IY). <br>
+Fordere DEIN Recht auf einen lebenswerten Planeten ein!<br><br>
 Wie schon der 14. Dalai Lama (Tenzin Gyatso) sagte:<br>
 """, unsafe_allow_html=True)
 
