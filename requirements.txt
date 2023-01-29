@@ -15,4 +15,9 @@ streamlit-bokeh-events
 streamlit-folium
 streamlit-keplergl
 tropycal
-
+pandas
+folium
+branca
+rasterio
+matplotlib
+numpy
