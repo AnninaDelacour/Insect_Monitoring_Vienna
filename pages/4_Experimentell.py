@@ -30,7 +30,7 @@ st.header("KrigR - Downscaling von Rasterdaten")
 
 st.markdown("""
 Im Zuge meiner Bachelorarbeit habe ich versucht, 
-Windaten von [ERA5-Land](https://cds.climate.copernicus.eu/cdsapp#!/dataset/reanalysis-era5-land?tab=overview) mithilfe des
+Winddaten von [ERA5-Land](https://cds.climate.copernicus.eu/cdsapp#!/dataset/reanalysis-era5-land?tab=overview) mithilfe des
 [R Packages KrigR](https://github.com/ErikKusch/KrigR) herunterzuskalieren und diese Daten anschließend mit den Wetterstationsdaten zu vergleichen.\n
 Da es nicht der Fokus meiner Arbeit ist, diese Daten aufzubereiten und zu bereinigen bzw. deren Signifikanz zu bewerten,
 werde ich diese in einem Jupyter Notebook "roh" zur Verfügung stellen.<br>
