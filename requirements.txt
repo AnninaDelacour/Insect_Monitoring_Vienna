@@ -4,8 +4,6 @@ geopandas
 leafmap
 streamlit
 streamlit-folium
-streamlit-keplergl
-tropycal
 pandas
 folium
 branca
