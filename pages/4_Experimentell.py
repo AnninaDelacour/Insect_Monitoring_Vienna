@@ -37,7 +37,7 @@ Da es nicht der Fokus meiner Arbeit ist, diese Daten aufzubereiten und zu berein
 werde ich diese in einem Jupyter Notebook "roh" zur Verfügung stellen.<br>
 Somit auch hier der Disclaimer, dass ich keine Fachperson für Windenergie o.ä. bin und lediglich veranschaulichen möchte,
 dass man mit deutlich geringerem Aufwand als noch vor zehn Jahren bereits viele Daten heranziehen kann, um sich
-einen ersten Eindruck zur Lage bezüglich Windenergiepotential machen kann.
+ein erstes Bild zur Lage bezüglich Windenergiepotential machen kann.
 
 <br>
 

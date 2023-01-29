@@ -46,7 +46,7 @@ st.markdown("""_______________________________________ """)
 
 with st.expander("HOW TO USE THE MAP:"):
     st.write(""" Mittels der Dropdown-Liste können verschiedene Monate, vom Jänner 2012 beginnend bis Jänner 2022 ausgewählt werden.""")
-    st.image("/Users/annina/Downloads/windkarte.gif")
+    st.image("https://github.com/AnninaDelacour/bachelor/blob/main/windkarte.gif?raw=true")
 
 
 # Color gradient for heatmap 
