@@ -5,15 +5,14 @@ st.set_page_config(layout="wide")
 st.sidebar.title("About")
 st.sidebar.info(
     """
-    GitHub repository: <https://github.com/AnninaDelacour/>
+    GitHub repository: [Annina Delacour](https://github.com/AnninaDelacour/bachelor)
     """
 )
 
 st.sidebar.title("Contact")
 st.sidebar.info(
     """
-    Annina Ecker:
-    [GitHub](https://github.com/AnninaDelacour/) | [Mastodon](https://twitter.com/) | [LinkedIn](https://www.linkedin.com/in/)
+    Annina Ecker: [Mastodon](https://mastodon.world/@aeae) | [LinkedIn](https://www.linkedin.com/in/)
     """
 )
 

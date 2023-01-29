@@ -19,15 +19,14 @@ p {
 st.sidebar.title("About")
 st.sidebar.info(
     """
-    GitHub repository: <https://github.com/AnninaDelacour/bachelor>
+    GitHub repository: [Annina Delacour](https://github.com/AnninaDelacour/bachelor)
     """
 )
 
 st.sidebar.title("Contact")
 st.sidebar.info(
     """
-    Annina Ecker:
-    [GitHub](https://github.com/AnninaDelacour) | [LinkedIn](https://www.linkedin.com/in/annina-ecker/)
+    Annina Ecker: [Mastodon](https://mastodon.world/@aeae) | [LinkedIn](https://www.linkedin.com/in/)
     """
 )
 
