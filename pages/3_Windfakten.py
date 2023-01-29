@@ -4,21 +4,8 @@ from streamlit_folium import st_folium
 import leafmap.foliumap as leafmap
 import pandas as pd
 import folium
-#import psycopg2
 import base64
 from config import read_config
-
-# Connect to the database
-#host = read_config('postgresql', 'host')
-#database = read_config('postgresql', 'database')
-#user = read_config('postgresql', 'user')
-#password = read_config('postgresql', 'password')
-
-#conn = psycopg2.connect(host=host, database=database, user=user, password=password)
-
-
-#conn = psycopg2.connect(database='bachelor', user='postgres', password='', host='localhost')
-#cur = conn.cursor()
 
 st.set_page_config(layout="wide")
 
@@ -74,8 +61,8 @@ st.header("Durchschnittliche Windgeschwindigkeiten")
 
 col1, col2 = st.columns(2)
 
-austria_wind_speed = 
-tirol_wind_speed = 
+austria_wind_speed = 'https://raw.githubusercontent.com/AnninaDelacour/bachelor/main/gwa_img/at/gwa3_austria_mean-wind-speed-at-200m.jpg'
+tirol_wind_speed = 'https://raw.githubusercontent.com/AnninaDelacour/bachelor/main/gwa_img/tirol/gwa3_tirol_mean-wind-speed.jpg'
 
 with col1:
     st.header("Tirol")
@@ -106,16 +93,8 @@ _________________________________________________________________
 
 st.header("Durchschnittliche Energiedichte")
 
-# Retrieve BLOB data from the database.
-sql3 = 'SELECT img FROM gwa_images WHERE id = 2'
-cur.execute(sql3, ('data'))
-data = cur.fetchone()[0]
-austria_power_density = data.tobytes()
-
-sql4 = 'SELECT img FROM gwa_images WHERE id = 6'
-cur.execute(sql4, ('data'))
-data = cur.fetchone()[0]
-tirol_power_density = data.tobytes()
+austria_power_density = 'https://raw.githubusercontent.com/AnninaDelacour/bachelor/main/gwa_img/at/gwa3_austria_mean-wind-power-density-at-200m.jpg'
+tirol_power_density = 'https://raw.githubusercontent.com/AnninaDelacour/bachelor/main/gwa_img/tirol/gwa3_tirol_mean-wind-power-density.jpg'
 
 col3, col4 = st.columns(2)
 
@@ -143,16 +122,8 @@ _________________________________________________________________
 
 st.header("Roughness - Rauheit eines Geländes")
 
-# Retrieve BLOB data from the database.
-sql5 = 'SELECT img FROM gwa_images WHERE id = 4'
-cur.execute(sql5, ('data'))
-data = cur.fetchone()[0]
-austria_roughness = data.tobytes()
-
-sql6 = 'SELECT img FROM gwa_images WHERE id = 8'
-cur.execute(sql6, ('data'))
-data = cur.fetchone()[0]
-tirol_roughness = data.tobytes()
+austria_roughness = 'https://raw.githubusercontent.com/AnninaDelacour/bachelor/main/gwa_img/at/gwa3_austria_roughness.jpg'
+tirol_roughness = 'https://raw.githubusercontent.com/AnninaDelacour/bachelor/main/gwa_img/tirol/gwa3_austria_tirol_roughness.jpg'
 
 col5, col6 = st.columns(2)
 
@@ -187,16 +158,8 @@ _________________________________________________________________
 
 st.header("Orographie - Die physische Geographie")
 
-# Retrieve BLOB data from the database.
-sql7 = 'SELECT img FROM gwa_images WHERE id = 9'
-cur.execute(sql7, ('data'))
-data = cur.fetchone()[0]
-austria_orography = data.tobytes()
-
-sql8 = 'SELECT img FROM gwa_images WHERE id = 10'
-cur.execute(sql8, ('data'))
-data = cur.fetchone()[0]
-tirol_orography = data.tobytes()
+austria_orography = 'https://raw.githubusercontent.com/AnninaDelacour/bachelor/main/gwa_img/at/gwa3_austria_elevation.jpg'
+tirol_orography = 'https://raw.githubusercontent.com/AnninaDelacour/bachelor/main/gwa_img/tirol/gwa3_tirol_elevation.jpg'
 
 col7, col8 = st.columns(2)
 
@@ -230,16 +193,9 @@ _________________________________________________________________
 
 st.header("Orographie - Die physische Geographie")
 
-# Retrieve BLOB data from the database.
-sql9 = 'SELECT img FROM gwa_images WHERE id = 1'
-cur.execute(sql9, ('data'))
-data = cur.fetchone()[0]
-austria_iec3 = data.tobytes()
 
-sql10 = 'SELECT img FROM gwa_images WHERE id = 5'
-cur.execute(sql10, ('data'))
-data = cur.fetchone()[0]
-tirol_iec3 = data.tobytes()
+austria_iec3 = 'https://raw.githubusercontent.com/AnninaDelacour/bachelor/main/gwa_img/at/gwa3_austria_capacity-factor-iec-class-3-1.jpg'
+tirol_iec3 = 'https://raw.githubusercontent.com/AnninaDelacour/bachelor/main/gwa_img/tirol/gwa3_tirol_capacity-factor-iec-class-3.jpg'
 
 col9, col10 = st.columns(2)
 
@@ -260,8 +216,6 @@ und dass die Eignung des Standorts einer Windkraftanlage gesondert betrachtet we
 Quelle: <https://globalwindatlas.info/en/about/method>
 """)
 
-cur.close()
-conn.close()
 
 st.markdown("""
 _________________________________________________________________
