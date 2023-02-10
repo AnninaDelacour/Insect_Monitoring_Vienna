@@ -171,9 +171,9 @@ with col8:
     st.image(austria_orography)
 
 st.markdown("""
-Das Gebeiet der Orographie beschäftigt sich mit der Frage, wie Berge, Hügel und Gebirgszüge entstehen,
+Das Gebiet der Orographie beschäftigt sich mit der Frage, wie Berge, Hügel und Gebirgszüge entstehen,
 welche Eigenschaften diese haben und wie sie sich entwickeln.
-Dabei wird keine Rücksicht auf genetische oder chronoglische Aspekte genommen.
+Dabei wird keine Rücksicht auf genetische oder chronologische Aspekte genommen.
 
 An den meisten Orten der Erde hat die Orographie einen großen Einfluss auf die Windressourcen.
 So beeinflussen beispielsweise orografische Merkmale wie Hügel, Täler, Klippen, Steilhänge und Bergrücken den Wind.
