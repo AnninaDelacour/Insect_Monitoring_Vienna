@@ -26,7 +26,7 @@ st.sidebar.info(
 st.sidebar.title("Contact")
 st.sidebar.info(
     """
-    Annina Ecker: [Mastodon](https://mastodon.world/@aeae) | [LinkedIn](https://www.linkedin.com/in/)
+    Annina Ecker: [Mastodon](https://mastodon.world/@aeae) | [LinkedIn](https://www.linkedin.com/in/annina-ecker/)
     """
 )
 

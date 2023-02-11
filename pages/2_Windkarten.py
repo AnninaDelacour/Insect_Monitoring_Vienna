@@ -27,19 +27,39 @@ st.sidebar.info(
 st.sidebar.title("Contact")
 st.sidebar.info(
     """
-    Annina Ecker: [Mastodon](https://mastodon.world/@aeae) | [LinkedIn](https://www.linkedin.com/in/)
+    Annina Ecker: [Mastodon](https://mastodon.world/@aeae) | [LinkedIn](https://www.linkedin.com/in/annina-ecker/)
     """
 )
 
 st.title("Windkarten")
 
-st.header("Windgeschwindigkeit Monatsmittel")
+st.header("Was zeigen diese Windkarten an und wie kann man diese Daten interpretieren?")
 
-st.markdown(""" 
-Die hier gezeigten Karten spiegeln unterschiedliche Werte in Bezug auf Wind wieder. Die Daten stammen aus der Datenbank
-des [DataHubs von ZAMG](https://data.hub.zamg.ac.at/). Dargestellt werden die unterschiedlichen Daten als sog. Heatmap;
-so soll eine erste grobe Einschätzung der Windgeschwindigkeit etc., an verschiedenen Standorten in Tirol ermöglicht werden.
+st.markdown("""
+Die hier angezeigten Windkarten geben unterschiedliche Informationen wieder:
+
+- Die durchschnittliche Windgeschwindigkeit
+- Die Anzahl der Tage mit Windstärke über 6 Bft (Beaufort)
+- Die Anzahl der Tage mit Böen über 80 km/h
+
+In jeder Karte ist im rechten oberen Bereich eine Legende, welche bei der Interpretation der Daten helfen soll.
+Dort sind die jeweiligen Unter- und Obergrenzen eingetragen. Sind in der Karte "Windgeschwindigkeit Monatsmittel" viele Felder der 
+Heatmap gelb, bedeutet dies eine durchschnittliche Windgeschwindigkeit im Monat bei ca. 4-7 m/s für das jeweilige Gebiet.
+Wichtig ist zu verstehen, dass diese Daten eine grobe Schätzung sind für ein gesamtes Gebiet. Das hat den Grund, da die Werte 
+von Wetterstationen stammen (also von einem Standort) und somit nur für den jeweiligen Standort genau und präzise sind.
+<font color='red'>Es gibt durchaus genauere Karten</font>, jedoch ist das ein eigenes Forschungsfeld 
+und ich möchte hier nur einen groben Eindruck vermitteln ;-)
 """, unsafe_allow_html=True)
+
+st.markdown("""
+Die Daten stammen aus der Datenbank des [DataHubs von ZAMG](https://data.hub.zamg.ac.at/). 
+Dargestellt werden die unterschiedlichen Daten als sogenannte Heatmap. 
+So soll eine erste grobe Einschätzung der Windgeschwindigkeit etc., an verschiedenen Standorten in Tirol ermöglicht werden.
+""", unsafe_allow_html=True)
+
+st.markdown("""_______________________________________ """)
+
+st.header("Windgeschwindigkeit Monatsmittel")
 
 st.markdown("""_______________________________________ """)
 
@@ -72,7 +92,7 @@ df['month_year'] = df['time'].apply(lambda x: x[:7])
 wind_speed_by_month = df.groupby('month_year')['vv'].mean()
 
 # Initialize the map
-m = leafmap.Map(center=[47.1133, 11.4147], zoom=8.5)
+m = leafmap.Map(center=[47.1133, 11.4147], zoom=7.5)
 
 # Get a list of the unique month and year values in the 'month_year' column
 month_year_values = df['month_year'].unique()
@@ -113,7 +133,6 @@ geo_json_data = {
 }
 
 # Create a heatmap layer from the GeoJSON data and add it to the map
-
 HeatMap(
     filtered_df[["Latitude", "Longitude", "vv"]],
     latitude="Latitude",
@@ -187,7 +206,7 @@ df['month_year'] = df['time'].apply(lambda x: x[:7])
 wind_speed_by_month = df.groupby('month_year')['w6'].mean()
 
 # Initialize the map
-m = leafmap.Map(center=[47.1133, 11.4147], zoom=8.5)
+m = leafmap.Map(center=[47.1133, 11.4147], zoom=7.5)
 
 # Get a list of the unique month and year values in the 'month_year' column
 month_year_values = df['month_year'].unique()
@@ -312,7 +331,7 @@ df['month_year'] = df['time'].apply(lambda x: x[:7])
 wind_speed_by_month = df.groupby('month_year')['v80'].mean()
 
 # Initialize the map
-m = leafmap.Map(center=[47.1133, 11.4147], zoom=8.5)
+m = leafmap.Map(center=[47.1133, 11.4147], zoom=7)
 
 # Get a list of the unique month and year values in the 'month_year' column
 month_year_values = df['month_year'].unique()
