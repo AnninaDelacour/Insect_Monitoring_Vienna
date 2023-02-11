@@ -55,7 +55,7 @@ with st.expander("HOW TO USE THE MAP:"):
     werden.""")
     st.image("https://github.com/AnninaDelacour/bachelor/blob/main/zonenkarte.gif?raw=true")
 
-m = leafmap.Map(center=[47.1133, 11.4147], zoom=8.5, layer="Swiss Federal Geoportal Map")
+m = leafmap.Map(center=[47.1133, 11.4147], zoom=7.5, layer="Swiss Federal Geoportal Map")
 m.add_basemap('Stamen.Toner')
 
 
