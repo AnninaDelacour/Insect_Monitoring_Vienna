@@ -53,7 +53,7 @@ st.markdown(
 with st.expander("HOW TO USE THE MAP:"):
     st.write(""" Mithilfe des Karten-Layermenüs (Karte: rechts oben) können unterschiedliche Layer ein- und ausgeschaltet 
     werden.""")
-    st.image("https://github.com/AnninaDelacour/bachelor/blob/main/zonenkarte.gif?raw=true")
+    st.image("https://bachelor.blob.core.windows.net/newcontainer/zonenkarte.gif")
 
 m = leafmap.Map(center=[47.1133, 11.4147], zoom=7.5, layer="Swiss Federal Geoportal Map")
 m.add_basemap('Stamen.Toner')
