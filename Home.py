@@ -17,7 +17,7 @@ st.sidebar.info(
 )
 
 
-st.title("Windenergie in Tirol")
+st.title("Windenergie Tirol")
 st.markdown("""
 Auf dieser Webseite findest du viele Informationen zum Thema <strong>Windenergie in Tirol</strong>.
 Darunter finden sich auch diverse interaktive Karten (oder Windatlanten), mit welchen du sehen kannst, wo potentielle Standorte für Windräder
