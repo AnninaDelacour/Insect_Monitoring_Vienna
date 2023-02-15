@@ -122,159 +122,35 @@ wildruhe_resp = requests.get(wildruheflaechen)
 ramsar_resp = requests.get(ramsar)
 
 
-# Check if the request was successful
-if schigebiet_resp.status_code == 200:
-    # Get the data from the response
-    schi_data = schigebiet_resp.json()
+def add_geojson_layer(request, name, fill_color, fill_opacity, stroke_color):
+    if request.status_code == 200:
+        data = request.json()
 
-    folium.GeoJson(
-    schi_data,
-    name='Schigebiete',
-    style_function=lambda feature: {
-        'aliases': 'Schigebiete',
-        'fillColor': '#10e0ff',
-        'fillOpacity': 0.8,
-        'color': '#00a0d1',
-        'weight': 1,
-        'dashArray': '1, 1'
-    }
-).add_to(m)
+        folium.GeoJson(
+            data,
+            name=name,
+            show=False,
+            style_function=lambda feature: {
+                'aliases': name,
+                'fillColor': fill_color,
+                'fillOpacity': fill_opacity,
+                'color': stroke_color,
+                'weight': 1,
+                'dashArray': '1, 1'
+            }
+        ).add_to(m)
+    else:
+        print("Request failed with status code:", request.status_code)
 
-else:
-    print("Request failed with status code:", schigebiet_resp.status_code)
-
-    #-------#-------#-------#-------#-------#-------#
-
-if wald_wild_resp.status_code == 200:
-    wald_wild_data = wald_wild_resp.json()
-
-    folium.GeoJson(
-    wald_wild_data,
-    name='Wald- und Wildschutzzonen',
-    show = False,
-    style_function=lambda feature: {
-        'aliases': 'Wald- & Wild-Schutzzonen',
-        'fillColor': '#01d669',
-        'fillOpacity': 0.8,
-        'color': 'black',
-        'weight': 1,
-        'dashArray': '1, 1'
-    }
-).add_to(m)
-else:
-    print("Request failed with status code:", wald_wild_resp.status_code)
-
-#-------#-------#-------#-------#-------#-------#
+add_geojson_layer(schigebiet_resp, 'Schigebiete', '#10e0ff', 0.8, '#00a0d1')
+add_geojson_layer(wald_wild_resp, 'Wald- und Wildschutzzonen', '#01d669', 0.8, 'black')
+add_geojson_layer(natura_vogel_resp, 'Natura 2000 Vogelschutzrichtlinie', '#FFEB2F', 0.8, '#ffb700')
+add_geojson_layer(natura2000_resp, 'Natura 2000 FFH Richtlinie', '#e2348b', 0.5, 'black')
+add_geojson_layer(schutzgebiete_resp, 'Schutzgebiete Umwelt', '#FF9300', 0.7, 'black')
+add_geojson_layer(ramsar_resp, 'Ramsar (Feuchtgebiete)', '#2735ba', 0.7, '#0d41e1')
+add_geojson_layer(wildruhe_resp, 'Wildruheflächen', '#ff304f', 0.6, '#000000')
 
 
-if natura_vogel_resp.status_code == 200:
-    natura_vogel_data = natura_vogel_resp.json()
-
-    folium.GeoJson(
-    natura_vogel_data,
-    name='Natura 2000 Vogelschutzrichtlinie',
-    show = False,
-    style_function=lambda feature: {
-        'aliases': 'Natura 2000 Vogelschutzrichtlinie',
-        'fillColor': '#ffce00',
-        'fillOpacity': 0.8,
-        'color': '#ffb700',
-        'weight': 0.8,
-        'dashArray': '1, 1'
-    }
-).add_to(m)
-
-else:
-    print("Request failed with status code:", natura_vogel_resp.status_code)
-
-
-#-------#-------#-------#-------#-------#-------#
-
-if natura2000_resp.status_code == 200:
-    natura2000_data = natura2000_resp.json()
-
-    folium.GeoJson(
-    natura2000_data,
-    name='Natura 2000 FFH Richtlinie',
-    show = False,
-    style_function=lambda feature: {
-        'aliases': 'Natura 2000 FFH Richtlinie',
-        'fillColor': '#e2348b',
-        'fillOpacity': 0.5,
-        'color': 'black',
-        'weight': 1,
-        #dashArray': '5, 5'
-    }
-).add_to(m)
-
-else:
-    print("Request failed with status code:", natura2000_resp.status_code)
-
-#-------#-------#-------#-------#-------#-------#
-
-if schutzgebiete_resp.status_code == 200:
-    schutzgebiete_data = schutzgebiete_resp.json()
-
-    folium.GeoJson(
-    schutzgebiete_data,
-    name='Schutzgebiete Umwelt',
-    show = False,
-    style_function=lambda feature: {
-        'aliases': 'Schutzgebiete Umwelt',
-        'fillColor': '#a9e04a',
-        'fillOpacity': 0.7,
-        'color': 'black',
-        'weight': 0.3,
-        'dashArray': '2, 2'
-    }
-).add_to(m)
-
-else:
-    print("Request failed with status code:", schutzgebiete_resp.status_code)
-
-#-------#-------#-------#-------#-------#-------#
-
-if ramsar_resp.status_code == 200:
-    ramsar_data = ramsar_resp.json()
-
-    folium.GeoJson(
-    ramsar_data,
-    name='Ramsar (Feuchtgebiete)',
-    show = False,
-    style_function=lambda feature: {
-        'aliases': 'Ramsar (Feuchtgebiete)',
-        'fillColor': '#2735ba',
-        'fillOpacity': 0.7,
-        'color': '#0d41e1',
-        'weight': 0.8,
-        'dashArray': '1, 1'
-    }
-).add_to(m)
-
-else:
-    print("Request failed with status code:", ramsar_resp.status_code)
-
-#-------#-------#-------#-------#-------#-------#
-
-
-if wildruhe_resp.status_code == 200:
-    wildruhe_data = wildruhe_resp.json()
-
-    folium.GeoJson(
-    wildruhe_data,
-    name='Wildruheflächen',
-    show = False,
-    style_function=lambda feature: {
-        'aliases': 'Wildruhefläclhen',
-        'fillColor': '#ff304f',
-        'fillOpacity': 0.6,
-        'color': '#000000',
-        'weight': 0.9,
-                }
-).add_to(m)
-
-else:
-    print("Request failed with status code:", wildruhe_resp.status_code)
 
 #-------#-------#-------#-------#-------#-------#
 
@@ -284,8 +160,8 @@ legend_dict = {
     "Schigebiete": "10e0ff",
     "Wald- und Wildschutzzonen": "01d669",
     "Natura 2000 FFH Richtlinien": "e2348b",
-    "Schutzgebiete Umwelt": "a9e04a",
-    "Natura 2000 Vogelschutzrichtlinie": "ffce00",
+    "Schutzgebiete Umwelt": "FF9300",
+    "Natura 2000 Vogelschutzrichtlinie": "FFEB2F",
     "Ramsar (Feuchtgebiete)": "2735ba",
     "Wildruheflächen": "ff304f"
 }
