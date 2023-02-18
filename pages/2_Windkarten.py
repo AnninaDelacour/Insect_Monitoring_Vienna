@@ -41,27 +41,35 @@ Die hier angezeigten Windkarten geben unterschiedliche Informationen wieder:
 - Die durchschnittliche Windgeschwindigkeit
 - Die Anzahl der Tage mit Windstärke über 6 Bft (Beaufort)
 - Die Anzahl der Tage mit Böen über 80 km/h
+- Die aktuellen Windstärken, -richtungen und -prognosen
 
 In jeder Karte ist im rechten oberen Bereich eine Legende, welche bei der Interpretation der Daten helfen soll.
-Dort sind die jeweiligen Unter- und Obergrenzen eingetragen. Sind in der Karte "Windgeschwindigkeit Monatsmittel" viele Felder der 
+Dort sind die jeweiligen Unter- und Obergrenzen eingetragen.
+<br>Sind in der Karte "Windgeschwindigkeit Monatsmittel" viele Felder der 
 Heatmap gelb, bedeutet dies eine durchschnittliche Windgeschwindigkeit im Monat bei ca. 4-7 m/s für das jeweilige Gebiet.
 Wichtig ist zu verstehen, dass diese Daten eine grobe Schätzung sind für ein gesamtes Gebiet. Das hat den Grund, da die Werte 
-von Wetterstationen stammen (also von einem Standort) und somit nur für den jeweiligen Standort genau und präzise sind.
-<font color='red'>Es gibt durchaus genauere Karten</font>, jedoch ist das ein eigenes Forschungsfeld 
-und ich möchte hier nur einen groben Eindruck vermitteln ;-)
+von Wetterstationen stammen (also von einem Standort) und somit nur für den jeweiligen Standort genau und präzise sind.<br>
+Es gibt durchaus genauere Karten, wie beispielsweise die [<strong>GTIF</strong>-Karte (Green Transition Information Factory)
+der Europäischen Raumfahrtbehörde (ESA)](https://gtif.esa.int/explore?x=1268308.6002&y=5986946.61913&z=9.04127), die du dir 
+auf jeden Fall ansehen solltest. So kannst du dir selbst einen vollumfänglichen Eindruck machen! :-) <br><br>
+
+Die letzte Karte, <strong>"Windy"</strong>, wurde 2014 von [Ivo](https://community.windy.com/topic/4/about-windy) entwickelt 
+und stellt Wetterinformationen und Vorhersagen in Echtzeit bereit. Auf der Webseite von Windy sind in der kostenlosen Version
+Radar-, Satelliten-, Temperatur- und Luftdruckkarten zu finden sowie andere Features.<br>
+Hier in dieser Webseite ist die Windkarte von <strong>Windy</strong> eingebettet. Mithilfe der hier verfügbaren Informationen 
+zu Wind sollte es einfach(er) fallen, die Daten von Windy interpretieren zu können.
+
 """, unsafe_allow_html=True)
 
 st.markdown("""
-Die Daten stammen aus der Datenbank des [DataHubs von ZAMG](https://data.hub.zamg.ac.at/). 
-Dargestellt werden die unterschiedlichen Daten als sogenannte Heatmap. 
-So soll eine erste grobe Einschätzung der Windgeschwindigkeit etc., an verschiedenen Standorten in Tirol ermöglicht werden.
+Die Daten der ersten drei Karten stammen aus der Datenbank des [GeoSphere DataHubs](https://data.hub.zamg.ac.at/). 
+Dargestellt werden die unterschiedlichen Daten als sogenannte Heatmap.
 """, unsafe_allow_html=True)
 
 st.markdown("""_______________________________________ """)
 
 st.header("Windgeschwindigkeit Monatsmittel")
 
-st.markdown("""_______________________________________ """)
 
 with st.expander("HOW TO USE THE MAP:"):
     st.write(""" Mittels der Dropdown-Liste können verschiedene Monate, vom Jänner 2012 beginnend bis Jänner 2022 ausgewählt werden.""")
@@ -98,7 +106,6 @@ m = leafmap.Map(center=[47.1133, 11.4147], zoom=7.5)
 month_year_values = df['month_year'].unique()
 
 
-@st.cache
 def get_selected_month_year_data(selected_month_year):
     # Filter the data to only include rows with the selected month and year
     filtered_df = df[df['month_year'] == selected_month_year]
@@ -212,7 +219,6 @@ m = leafmap.Map(center=[47.1133, 11.4147], zoom=7.5)
 month_year_values = df['month_year'].unique()
 
 
-@st.cache
 def get_selected_month_year_data(selected_month_year):
     # Filter the data to only include rows with the selected month and year
     filtered_df = df[df['month_year'] == selected_month_year]
@@ -278,20 +284,20 @@ st.markdown("""
 Die Beaufortskala (Bft) ist eine Skala zur Einteilung der Windstärke in 13 Stärkenbereiche von 0 (Windstille) bis 12 (Orkan), die nicht auf exakten Messungen, sondern den beobachteten Auswirkungen des Windes basiert. 
 Sie ist benannt nach Sir Francis Beaufort und ein weit verbreitetes System zur Beschreibung der Windstärke.
 
-Beaufort-Skala nach phänomenologischen Kriterien:
-- 0 Bft: 0 bis 1 kn | 0 bis 0.2 m/s | 0 bis 1 km/h | Windstille, Flaute
-- 1 Bft: 1 bis 4 kn | 0.3 bis 1.5 m/s | 1 bis 5 km/h | leiser Zug
-- 2 Bft: 4 bis 6 kn | 1.6 bis 3.3 m/s | 6 bis 11 km/h | leichte Brise
-- 3 Bft: 7 bis 10 kn | 3.4 bis 5.4 m/s | 12 bis 19 km/h | schwache Brise
-- 4 Bft: 11 bis 15 kn | 5.5 bis 7.9 m/s | 20 bis 28 km/h | mäßige Brise
-- 5 Bft: 16 bis 21 kn | 8.0 bis 10.7 m/s | 29 bis 38 km/h | frische Brise, frischer Wind
-- 6 Bft: 22 bis 27 kn | 10.8 b is 13.8 m/s | 39 bis 49 km/h | starker Wind
-- 7 Bft: 28 bis 33 kn | 13.9 bis 17.1 m/s | 50 bis 61 km/h | steifer Wind
-- 8 Bft: 34 bis 40 kn | 17.2 bis 20.7 m/s | 62 bis 74 km/h | stürmischer Wind
-- 9 Bft: 41 bis 47 kn | 20.8 bis 24.4 m/s | 75 bis 88 km/h | Sturm
-- 10 Bft: 48 bis 55 kn | 24.5 bis 28.4 m/s | 89 bis 102 km/h | schwerer Sturm
-- 11 Bft: 56 bis 63 kn | 28.5 bis 32.6 m/s | 103 bis 117 km/h | Orkanartiger Sturm
-- 12 Bft: >64 kn | >32.7 m/s | > 118 km/h | Orkan
+Beaufort-Skala nach phänomenologischen Kriterien: 
+- <span style="color: #0089FF">0 Bft: 0 bis 1 kn</span> | <span style="color: #FF2372">0 bis 0.2 m/s</span> | <span style="color: #00B141">0 bis 1 km/h</span> | Windstille, Flaute
+- <span style="color: #0089FF">1 Bft: 1 bis 4 kn</span> | <span style="color: #FF2372">0.3 bis 1.5 m/s</span> | <span style="color: #00B141">1 bis 5 km/h</span> | leiser Zug
+- <span style="color: #0089FF">2 Bft: 4 bis 6 kn</span> | <span style="color: #FF2372">1.6 bis 3.3 m/s</span> | <span style="color: #00B141">6 bis 11 km/h</span> | leichte Brise
+- <span style="color: #0089FF">3 Bft: 7 bis 10 kn</span> | <span style="color: #FF2372">3.4 bis 5.4 m/s</span> | <span style="color: #00B141">12 bis 19 km/h</span> | schwache Brise
+- <span style="color: #0089FF">4 Bft: 11 bis 15 kn</span> | <span style="color: #FF2372">5.5 bis 7.9 m/s</span> | <span style="color: #00B141">20 bis 28 km/h</span> | mäßige Brise
+- <span style="color: #0089FF">5 Bft: 16 bis 21 kn</span> | <span style="color: #FF2372">8.0 bis 10.7 m/s</span> | <span style="color: #00B141">29 bis 38 km/h</span> | frische Brise, frischer Wind
+- <span style="color: #0089FF">6 Bft: 22 bis 27 kn</span> | <span style="color: #FF2372">10.8 b is 13.8 m/s</span> | <span style="color: #00B141">39 bis 49 km/h</span> | starker Wind
+- <span style="color: #0089FF">7 Bft: 28 bis 33 kn</span> | <span style="color: #FF2372">13.9 bis 17.1 m/s</span> | <span style="color: #00B141">50 bis 61 km/h</span> | steifer Wind
+- <span style="color: #0089FF">8 Bft: 34 bis 40 kn</span> | <span style="color: #FF2372">17.2 bis 20.7 m/s</span> | <span style="color: #00B141">62 bis 74 km/h</span> | stürmischer Wind
+- <span style="color: #0089FF">9 Bft: 41 bis 47 kn</span> | <span style="color: #FF2372">20.8 bis 24.4 m/s</span> | <span style="color: #00B141">75 bis 88 km/h</span> | Sturm
+- <span style="color: #0089FF">10 Bft: 48 bis 55 kn</span> | <span style="color: #FF2372">24.5 bis 28.4 m/s</span> | <span style="color: #00B141">89 bis 102 km/h</span> | schwerer Sturm
+- <span style="color: #0089FF">11 Bft: 56 bis 63 kn</span> | <span style="color: #FF2372">28.5 bis 32.6 m/s</span> | <span style="color: #00B141">103 bis 117 km/h</span> | Orkanartiger Sturm
+- <span style="color: #0089FF">12 Bft: >64 kn</span> | <span style="color: #FF2372">> 32.7 m/s</span> | <span style="color: #00B141">> 118 km/h</span> | Orkan
 
 Üblicherweise wird ab einer Windgeschwindigkeit von rund neun bis zwölf m/s die aus der Auftriebskraft resultierende Rotorleistung durch aerodynamische Maßnahmen begrenzt, 
 um die vorgegebene Nennleistung nicht zu übersteigen, da es sonst zu Überlastungen und Materialschäden kommen könnte.
@@ -337,7 +343,6 @@ m = leafmap.Map(center=[47.1133, 11.4147], zoom=7)
 month_year_values = df['month_year'].unique()
 
 
-@st.cache
 def get_selected_month_year_data(selected_month_year):
     # Filter the data to only include rows with the selected month and year
     filtered_df = df[df['month_year'] == selected_month_year]
@@ -404,3 +409,55 @@ um eventuelle Schäden zu vermeiden. Der Pitchwinkel ist nahezu 90°; die Blätt
 
 Quelle: [WindEnergie - Widerstands- und Auftriebsläufer ](https://www.wind-energie.de/themen/anlagentechnik/funktionsweise/widerstandlaeufer-auftriebslaeufer/)
 """, unsafe_allow_html=True)
+
+st.markdown("""_______________________________________ """)
+
+st.header("Windy - Wind- und Wettervorhersagen in Echtzeit")
+
+st.markdown(""" 
+Bei [Windy](https://www.windy.com/?48.171,16.321,5) handelt es sich um eine Wettervorhersage-Plattform, welche Daten wie Temperatur, Windgeschwindigkeit und Niederschlag
+visualisiert und animiert. Auf der Webseite kann man noch weitere (kostenlose) Funktionen und Einstellungsmöglichkeiten finden.
+
+Anhand dieser Karte ist sehr gut zu erkennen, wie komplex Wind sich verhält.
+Wind wird durch viele Variablen beeinflusst, einschließlich der Temperaturunterschiede in der Atmosphäre, 
+der unterschiedlichen Luftdichte in verschiedenen Höhen, der Geographie der Landschaft, der Feuchtigkeit der Luft, 
+der Rotation der Erde und vieler anderer Faktoren.
+""", unsafe_allow_html=True)
+
+st.markdown(""" 
+Die hier eingebetteten Visualisierung der Karte zeigt folgende Daten:
+
+- <strong><span style="color: #FB4724">HOURS</span></strong> <br>
+Alle drei Stunden wird die Karte aktualisiert. Beginnend um 1 Uhr morgens, 
+kommt das nächste Update somit um 4 Uhr morgens etc. <br>
+
+- <strong><span style="color: #FB4724">TEMPERATURE</span></strong> <br>
+Die Temperatur in Grad Celsius <br>
+
+- <strong><span style="color: #FB4724">RAIN</span></strong> <br>
+Die Menge an Niederschlag (Regen), gemessen in Millimeter <br>
+
+- <strong><span style="color: #FB4724">WIND</span></strong> 
+<br> Die Windstärke in Kilometer pro Stunde <br>
+
+- <strong><span style="color: #FB4724">WIND GUSTS</span></strong> 
+<br> Die Windböen in Kilometer pro Stunde <br>
+
+- <strong><span style="color: #FB4724">WIND DIR(ECTION)</span></strong> 
+<br> Die jeweilige Windrichtung <br>
+
+Außerdem ist am unteren Rand der Karte eine Legende abgebildet, die farblich erste Hinweise über die Windgeschwindigkeit in 
+km/h liefert.
+Mithilfe der im rechten oberen Rand befindlichen Zoom-Navigation kann man genauer Orte und Gebiete, durch Herauszoomen aber auch 
+die globalen Windströme insgesamt betrachten.
+""", unsafe_allow_html=True)
+
+# Set the coordinates and zoom level for the Windy map
+lat, lon = 47.1133, 11.4147
+zoom = 8.5
+
+# Build the URL for the Windy map with the specified location and zoom
+url = f"https://embed.windy.com/?lat={lat}&lon={lon}&zoom={zoom}&level=surface&overlay=wind&menu=&message=&marker=&calendar=&pressure=&type=map&location=coordinates&detail=&detailLat={lat}&detailLon={lon}&metricWind=km%2Fh&metricTemp=%C2%B0C&radarRange=-1"
+
+# Embed the Windy map in Streamlit using an iframe
+st.write(f'<iframe src="{url}" width="100%" height="800"></iframe>', unsafe_allow_html=True)

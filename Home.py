@@ -77,7 +77,7 @@ st.info("""
 
 st.markdown(""" Österreich hat somit noch sehr viel Potentiale, die es ausschöpfen kann, um nicht nur ökonomisch, 
 sondern auch weitesgehend ökologisch Strom zu erzeugen!
-Grüner und günstiger Strom kommt uns alle zugute; je mehr Autonomie wir über unseren Strom haben, desto weniger können wir 
+Grüner und günstiger Strom kommt uns allen zugute; je mehr Autonomie wir über unseren Strom haben, desto weniger können wir 
 von Krisen gebeutelt werden. Zudem schaffen wir nachhaltige Arbeitsplätze und
 können so den Ausbau als auch die Weiterentwicklung solcher Technologien fördern und fordern.""", unsafe_allow_html=True)
 
@@ -106,7 +106,7 @@ sehr vieles für sich selbst entscheiden, denn es gilt das bundesstaatliche Prin
 Es wird notwendig sein, abzuwägen, wie hoch ein potentieller Schaden in Kauf genommen werden kann für Pilotprojekte.
 Hierzu braucht es die Zusammenarbeit mit verschiedenen Interessensgruppen und den Austausch von Expertinnen und Experten.
 Das <strong>gemeinsame Ziel</strong>, den fortschreitenden Klimawandel zu bremsen 
-und ein noch viel drastischeres Artensterben zu verhindern, muss dabei immer im Mittelpunkt bleiben.<br><br>
+und ein noch viel drastischeres Artensterben zu verhindern, muss dabei immer im Fokus bleiben.<br><br>
 
 <b><font color='red'>Stirbt unser Ökosystem, haben auch wir keine Chance auf eine stabile und funktionierende Zukunft.</font></b>
 """, unsafe_allow_html=True)
@@ -117,15 +117,16 @@ _________________________________________________________________
 """)
 
 
-st.header("Können Windräder nicht gefährlich sein für Tiere? Verschandeln sie nicht zusätzlich das Landschaftsbild?")
+st.header("Können Windräder nicht gefährlich sein für Tiere? Verschandeln Windräder nicht das Landschaftsbild?")
 
 st.markdown(""" 
 [Wenn wir unsere Natur schützen und erhalten wollen](https://windfakten.at/?xmlval_ID_KEY[0]=1272), darf in dieser Diskussion die Frage bezüglich des allg. Natur- und 
 Artenschutzes nicht fehlen.<br>
-[Windräder können potentiell für Tiere ein Riskio darstellen](https://naturschutz.ch/news/forschung/windturbinen-auf-stand-by-weniger-kollisionen-mit-fledermaeusen/123806). Es ist faktisch nicht wahr, dass es keinerlei Auswirkungen hat;
+[Windräder können potentiell für Tiere ein Risiko darstellen](https://naturschutz.ch/news/forschung/windturbinen-auf-stand-by-weniger-kollisionen-mit-fledermaeusen/123806). Es ist faktisch nicht wahr, dass es keinerlei Auswirkungen hat;
 Wald- und Wildtiere ändern ebenso ihr Verhalten und passen sich an wie auch ihre hochentwickelten Nachbarn - wir Menschen.
 Jedoch können nicht alle gleich gut oder schnell ihr Verhalten anpassen. Zudem erleben wir seit Jahren, dass mehr und mehr Arten 
-aussterben oder davon bedroht sind, auszusterben. Da ein gesundes Ökosystem ein komplexes System darstellt, zu dem Insekten, Vögel,
+aussterben oder davon bedroht sind, auszusterben. <br>
+Da ein gesundes Ökosystem ein komplexes System darstellt, zu dem Insekten, Vögel,
 Hirsche, Wölfe, Luchse uvm., gehören, braucht es den Dialog zwischen verschiedenen Expertinnen und Experten, die diese Themen seit 
 vielen Jahren eingehend studieren und sich auch mit der Situation in unseren Nachbar\:innenländern befassen (Schweiz, Italien, Deutschland).
 <br>
@@ -144,10 +145,13 @@ auf persönlicher, aber auch politischer Ebene zu führen. Eine [Studie aus dem 
 die sich mit dem Tourismus in Island beschäftigt hinsichtlich der Frage, welche Auswirkungen das Aufstellen von Windrädern auf 
 der Insel hätte. Die befragten Personen waren im Schnitt alle sehr negativ eingestellt, denn ihrer Meinung nach kämen Tourist\:innen
 vor allem deswegen gerne nach Island, um "unberührte Natur" vorzufinden. <br>
-Man sollte nicht leichtfertig mit diesem Thema umgehen, denn der Erholungsfaktor in manchen Regionen ist von wirtschaftlich großer Bedeutung.
+Ähnlich sehen es die Eidgenoss\:innen laut einer [Befragung aus dem Jahr 2022](https://www.wsl.ch/de/newsseiten/2022/12/schweizer-bevoelkerung-will-keine-energieanlagen-in-unberuehrten-alpenlandschaften.html): 
+In <span style="font-style: italic;"><strong>unberührten</strong></span> Alpenlandschaften wollen eine deutliche Mehrheit keine erneuerbaren 
+Energieträger. <span style="color: red;">Allerdings wird <strong>klar</strong> zwischen unberührten und touristisch geprägten Gebieten unterschieden!</span><br>
+Man sollte daher (politisch) nicht leichtfertig mit diesem Thema umgehen, es jedoch auch nicht als "Totschlagargument" missbrauchen.
 <br>
 <br>
-[Aber auch hier gibt es bereits Menschen, die mithilfe innovativer Ideen helfen wollen,](https://enerkite.de/)
+[Und: Es gibt bereits Menschen, die mithilfe innovativer Ideen helfen wollen,](https://enerkite.de/)
  solche und ähnliche Debatten zu lösen: [KiteKraft](https://www.kitekraft.de/de/fliegende-windkraft)
 
 
@@ -182,7 +186,7 @@ Es fehlt ein Gesamtkonzept, das festlegt, wo und unter welchen Bedingungen
 st.markdown("Quelle: [WWF - Wasserkraft in Österreich](https://www.wwf.at/das-schuetzen-wir/fluesse/wasserkraft-in-oesterreich/)", unsafe_allow_html=True)
 
 st.markdown("""
-Wasserkraft alleine wird nicht ausreichen. [Bei bereits mehr als 5.200 Kraftwerken in Österreich, 
+Wasserkraft alleine wird nicht ausreichen. [Bei mittlerweile mehr als 5.200 Kraftwerken in Österreich, 
 die bereits eine Belastung für Fließgewässer sind, braucht es Alternativen](https://www.fluessevollerleben.at/aktuelle-bedrohung-karte/).
 <br>Außerdem: Wasserkraft ist vor allem in den wärmeren Monaten ideal und "ertragreich" (Frühling bis Herbst), 
 im Winter punkten jedoch *Windkrafträder. Fügen wir dem Bild noch PV-Anlagen hinzu, könnten wir auf lange Sicht einen "grünen 
@@ -213,7 +217,7 @@ Im ersten Schritt ist es wichtig, mehr Bewusstsein für dieses Thema, das uns al
 Gerne kannst du diese Seite mit anderen Teilen, dich überall durchklicken und auch die anderen Webseiten,
 die hier geteilt werden, ansehen.<br>
 Auch wenn es oft nicht so scheint, es gibt VIELE Personen,
-die sich mit dieser Problematik bereits viel befasst haben bzw. befassen, und sehr gute 
+die sich mit dieser Problematik bereits intensiv befassen bzw. befasst haben, und sehr gute 
 und gut verständliche Beiträge veröffentlicht haben.<br>
 <br>
 Hier eine Liste dazu:
@@ -232,9 +236,15 @@ Es gibt natürlich auch etwas detailliertere Lektüre - für all jene, die sich 
 - [Österreich SDGs (Sustainable Development Goals) und die Agenda 2030](https://sustainabledevelopment.un.org/content/documents/26661VNR_2020_Austria_Report_German.pdf)
 - [WWF - Positionspapier EAG 2020](https://www.wwf.at/wp-content/uploads/2021/08/EAG-2020_Positionspapier-WWF-Oesterreich-und-Umweltdachverband.pdf)
 - [Austrian Power Grid AG - Stromversorgung](https://www.apg.at/stromnetz/netzausbau/netzentwicklungsplan-2021/)
+""", unsafe_allow_html=True)
 
-Wer lieber Videos schaut, kann sich beispielsweise von Kurzgesagt einiges ansehen
-(in der Videobeschreibung findet man auch einen Link zu allen Studien, auf die die Videos aufbauen!):
+st.markdown("""
+_________________________________________________________________
+""")
+
+st.markdown(""" 
+<h3> Wer lieber Videos schaut, kann sich beispielsweise von Kurzgesagt einiges ansehen
+(in der Videobeschreibung findet man auch einen Link zu allen Studien, auf die die Videos aufbauen!):</h3> <br><br>
 """, unsafe_allow_html=True)
 
 kurzgesagt_de_fix_climate = "https://www.youtube.com/watch?v=FvjbhiILmPk"
