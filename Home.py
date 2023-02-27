@@ -133,7 +133,7 @@ _________________________________________________________________
 st.header("Gibt es Möglichkeiten, um bestimmen zu können, wo man Windräder aufstellen kann?")
 st.markdown(
     """
-    Ja, es gibt die Möglichkeit, mithilfe eines sogenannten Windatlasses ungefähr geeignte Standorte zu ermitteln.
+    Mithilfe eines sogenannten Windatlasses ist es möglich, potentiell geeignte Standorte zu ermitteln.
     Ein Windatlas ist eine Art Karte, die die Windverhältnisse in einer bestimmten Region darstellt.
     Diese Karten zeigen in der Regel die Windgeschwindigkeit und -richtung an verschiedenen Orten in der Region 
     und können auch Informationen über die Windverteilung im Laufe des Jahres enthalten. 
