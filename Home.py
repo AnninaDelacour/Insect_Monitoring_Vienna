@@ -17,12 +17,39 @@ st.sidebar.info(
 )
 
 
-st.title("Windenergie Tirol")
+st.markdown("<h1 style='font-size: 70px; color: #FF8066;'>Windatlas für Tirol</h1>", unsafe_allow_html=True)
 st.markdown("""
-Auf dieser Webseite findest du viele Informationen zum Thema <strong>Windenergie in Tirol</strong>.
-Darunter finden sich auch diverse interaktive Karten (oder Windatlanten), mit welchen du sehen kannst, wo potentielle Standorte für Windräder
-in Tirol sind, wie es mit dem Windpotential allgemein aussieht (gibt es davon überhaupt genug, um Windräder in Tirol aufzustellen?),
+Ein Atlas ist eine Sammlung von Karten - und genau das soll diese Webseite hier sein: Eine Sammlung an verschiedenen Karten,
+aber auch Informationen zum Thema <strong>Windenergie in Tirol</strong>, mit welchen du sehen kannst, 
+wo potentielle Standorte für Windräder in Tirol sind, wie es mit dem Windpotential allgemein aussieht 
+(gibt es davon überhaupt genug, um Windräder in Tirol aufzustellen?),
 und Grafiken, die Vergleiche zwischen Tirol und dem gesamten österreichischen Gebiet aufzeigen.
+
+Bitte beachte, dass die Seite nicht als mobile App konzipiert, sondern für die Desktop-Ansicht optimiert ist.
+""", unsafe_allow_html=True)
+
+st.markdown("""
+______________________________________________________
+""", unsafe_allow_html=True)
+
+st.header("Was ist Wind? Wie kann man daraus Energie erzeugen?")
+
+st.markdown("""
+Wind ist eine natürliche Bewegung der Luft, die durch den Ausgleich von Unterschieden im Luftdruck 
+und in der Temperatur entsteht. Wenn sich Luft mit unterschiedlicher Temperatur und Luftdruck in Bewegung setzt, 
+entsteht Wind. Dieses Phänomen wird durch die Sonne verursacht, die die Erdoberfläche erwärmt. 
+Die erwärmte Luft in der Nähe der Oberfläche steigt auf und wird durch kalte Luft aus anderen Regionen ersetzt, 
+was wiederum den Luftdruckunterschied ausgleicht und so den Wind erzeugt.
+
+Windenergie ist eine erneuerbare Energiequelle, die durch die Nutzung von Windturbinen erzeugt wird. 
+Eine Windturbine besteht aus Rotorblättern, einem Turm und einer Nabe, die den Rotor mit dem Turm verbindet. 
+Wenn der Wind die Rotorblätter dreht, setzt dies die Nabe in Bewegung, die wiederum einen Generator antreibt, 
+der Elektrizität produziert.
+
+Die erzeugte Elektrizität kann dann in das Stromnetz eingespeist oder in Energiespeichersystemen gespeichert werden, 
+um später genutzt zu werden. Die Nutzung von Windenergie als Energiequelle hat viele Vorteile. Sie ist umweltfreundlich, 
+da sie im Gegensatz zu fossilen Brennstoffen keine schädlichen Emissionen erzeugt. Sie ist auch eine saubere Energiequelle, 
+die dazu beitragen kann, die Abhängigkeit von nicht erneuerbaren Energiequellen zu verringern und die Umwelt zu schützen.
 """, unsafe_allow_html=True)
 
 
@@ -30,20 +57,8 @@ st.markdown("""
 _________________________________________________________________
 """)
 
-st.header("Was ist ein Windatlas und wofür braucht man das?")
-st.markdown(
-    """
-    Ein Windatlas ist eine Art Karte, die die Windverhältnisse in einer bestimmten Region darstellt.
-    Diese Karten zeigen in der Regel die Windgeschwindigkeit und -richtung an verschiedenen Orten in der Region 
-    und können auch Informationen über die Windverteilung im Laufe des Jahres enthalten. 
-    Windatlasse werden oft verwendet, um die Auswirkungen von Windenergieprojekten auf die Umwelt vorherzusagen 
-    und um die besten Standorte für Windenergieanlagen zu bestimmen.
-    """
-)
 
-
-
-st.subheader("Und wieso ist das nun wichtig?")
+st.header("Wieso brauchen wir Windenergie?")
 
 st.markdown("""
 
@@ -110,6 +125,22 @@ und ein noch viel drastischeres Artensterben zu verhindern, muss dabei immer im 
 
 <b><font color='red'>Stirbt unser Ökosystem, haben auch wir keine Chance auf eine stabile und funktionierende Zukunft.</font></b>
 """, unsafe_allow_html=True)
+
+st.markdown("""
+_________________________________________________________________
+""")
+
+st.header("Gibt es Möglichkeiten, um bestimmen zu können, wo man Windräder aufstellen kann?")
+st.markdown(
+    """
+    Ja, es gibt die Möglichkeit, mithilfe eines sogenannten Windatlasses ungefähr geeignte Standorte zu ermitteln.
+    Ein Windatlas ist eine Art Karte, die die Windverhältnisse in einer bestimmten Region darstellt.
+    Diese Karten zeigen in der Regel die Windgeschwindigkeit und -richtung an verschiedenen Orten in der Region 
+    und können auch Informationen über die Windverteilung im Laufe des Jahres enthalten. 
+    Windatlasse werden oft verwendet, um die Auswirkungen von Windenergieprojekten auf die Umwelt vorherzusagen 
+    und um die besten Standorte für Windenergieanlagen zu bestimmen.
+    """
+)
 
 
 st.markdown("""

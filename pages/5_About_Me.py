@@ -17,7 +17,7 @@ st.sidebar.info(
 )
 
 
-st.title("Hi :)")
+st.markdown("<h1 style='font-size: 60px; color: #FF8066;'>Hi :)</h1>", unsafe_allow_html=True)
 
 st.header("Wer ich bin")
 st.markdown(

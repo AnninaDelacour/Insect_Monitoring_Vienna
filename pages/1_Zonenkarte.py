@@ -33,7 +33,7 @@ st.sidebar.info(
     """
 )
 
-st.title("Zonenkarte Tirol")
+st.markdown("<h1 style='font-size: 70px; color: #FF8066;'>Zonenkarte Tirol</h1>", unsafe_allow_html=True)
 st.markdown(
     """
     Die <strong>Zonenkarte</strong> soll dabei helfen, zu sehen, welche unterschiedlichen Gebiete in Tirol existieren, die für

@@ -31,7 +31,7 @@ st.sidebar.info(
     """
 )
 
-st.title("Windkarten")
+st.markdown("<h1 style='font-size: 70px; color: #FF8066;'>Windkarten</h1>", unsafe_allow_html=True)
 
 st.header("Was zeigen diese Windkarten an und wie kann man diese Daten interpretieren?")
 
