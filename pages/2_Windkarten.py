@@ -154,7 +154,7 @@ HeatMap(
 colors = ['#9e0142', '#cb334d', '#f57245', '#fdbf6f', '#fff2aa', '#eaf79e', 
               '#a4daa4', '#54aead', '#4d65ad', '#5e4fa2']
 vmin = 0
-vmax = 12.4
+vmax = 20
 
 colormap = cm.LinearColormap(colors=colors, vmin=vmin, vmax=vmax, caption='Windgeschwindigkeit (Monatsmittel) in m/s')
 m.add_child(colormap)
@@ -268,8 +268,8 @@ HeatMap(
 
 colors = ['#9e0142', '#cb334d', '#f57245', '#fdbf6f', '#fff2aa', '#eaf79e', 
               '#a4daa4', '#54aead', '#4d65ad', '#5e4fa2']
-vmin = 1.0
-vmax = 26.0
+vmin = 0.0
+vmax = 30.0
 
 colormap = cm.LinearColormap(colors=colors, vmin=vmin, vmax=vmax, caption='Anzahl der Tage mit Windstärke >= 6 Bft')
 m.add_child(colormap)
@@ -337,7 +337,7 @@ df['month_year'] = df['time'].apply(lambda x: x[:7])
 wind_speed_by_month = df.groupby('month_year')['v80'].mean()
 
 # Initialize the map
-m = leafmap.Map(center=[47.1133, 11.4147], zoom=7)
+m = leafmap.Map(center=[47.1133, 11.4147], zoom=8)
 
 # Get a list of the unique month and year values in the 'month_year' column
 month_year_values = df['month_year'].unique()
@@ -391,8 +391,8 @@ HeatMap(
 
 colors = ['#9e0142', '#cb334d', '#f57245', '#fdbf6f', '#fff2aa', '#eaf79e', 
               '#a4daa4', '#54aead', '#4d65ad', '#5e4fa2']
-vmin = 1.0
-vmax = 22.0
+vmin = 0.0
+vmax = 25.0
 
 colormap = cm.LinearColormap(colors=colors, vmin=vmin, vmax=vmax, caption='Anzahl der Tage mit Windböen >= 80 km/h')
 m.add_child(colormap)
