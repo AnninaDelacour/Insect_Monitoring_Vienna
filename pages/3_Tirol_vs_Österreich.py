@@ -212,7 +212,7 @@ st.markdown("""
 _________________________________________________________________
 """)
 
-st.header("Der Kapzitätenfaktor IEC - Klasse 3")
+st.header("Der Kapzitätsfaktor IEC - Klasse 3")
 
 
 austria_iec3 = 'https://raw.githubusercontent.com/AnninaDelacour/bachelor/main/gwa_img/at/gwa3_austria_capacity-factor-iec-class-3-1.jpg'
