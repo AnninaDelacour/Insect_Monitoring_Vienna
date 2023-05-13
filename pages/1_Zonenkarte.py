@@ -178,7 +178,7 @@ def add_geojson_layer(request, name, fill_color, fill_opacity, stroke_color):
             data,
             name=name,
             show=False,
-            style_function=lambda feature: {
+            style_function=lambda _: {
                 'aliases': name,
                 'fillColor': fill_color,
                 'fillOpacity': fill_opacity,
