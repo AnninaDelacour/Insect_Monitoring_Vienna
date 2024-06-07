@@ -98,15 +98,15 @@ m.add_basemap('CartoDB.Positron')
 
 
 #geojson
-schigebiet = 'https://bachelor.blob.core.windows.net/newcontainer/URP_Schigebietsgrenzen.geojson'
-wald_wild_schutzzonen = 'https://bachelor.blob.core.windows.net/newcontainer/Wald_und_Wildschutzzonen.geojson'
-natura_2000_ffh = 'https://bachelor.blob.core.windows.net/newcontainer/Natura_2000_FFH_Richtlinie.geojson'
-natura_2000_vogelschutz = 'https://bachelor.blob.core.windows.net/newcontainer/Natura_2000_Vogelschutzrichtlinie.geojson'
-schutzgebiete_umwelt = 'https://bachelor.blob.core.windows.net/newcontainer/Schutzgebiete_Umwelt.geojson'
-ramsar = 'https://bachelor.blob.core.windows.net/newcontainer/Ramsar_Gebiete.geojson'
-wildruheflaechen = 'https://bachelor.blob.core.windows.net/newcontainer/Wildruheflaechen_Tirol.geojson'
-power_grid = 'https://bachelor.blob.core.windows.net/newcontainer/bb_tirol_power_line.geojson'
-power_plants = 'https://bachelor.blob.core.windows.net/newcontainer/power_plant.geojson'
+schigebiet = 'https://windenergie.blob.core.windows.net/geojson/URP_Schigebietsgrenzen.geojson'
+wald_wild_schutzzonen = 'https://windenergie.blob.core.windows.net/geojson/Wald_und_Wildschutzzonen.geojson'
+natura_2000_ffh = 'https://windenergie.blob.core.windows.net/geojson/Natura_2000_FFH_Richtlinie.geojson'
+natura_2000_vogelschutz = 'https://windenergie.blob.core.windows.net/geojson/Natura_2000_Vogelschutzrichtlinie.geojson'
+schutzgebiete_umwelt = 'https://windenergie.blob.core.windows.net/geojson/Schutzgebiete_Umwelt.geojson'
+ramsar = 'https://windenergie.blob.core.windows.net/geojson/Ramsar_Gebiete.geojson'
+wildruheflaechen = 'https://windenergie.blob.core.windows.net/geojson/Wildruheflaechen_Tirol.geojson'
+power_grid = 'https://windenergie.blob.core.windows.net/geojson/bb_tirol_power_line.geojson'
+power_plants = 'https://windenergie.blob.core.windows.net/geojson/power_plant.geojson'
 
 
 # Use the requests library to fetch the data from the URL
