@@ -73,7 +73,7 @@ st.header("Windgeschwindigkeit Monatsmittel")
 
 with st.expander("HOW TO USE THE MAP:"):
     st.write(""" Mittels der Dropdown-Liste können verschiedene Monate, vom Jänner 2012 beginnend bis Jänner 2022 ausgewählt werden.""")
-    st.image("https://bachelor.blob.core.windows.net/newcontainer/windkarte.gif")
+    st.image("https://raw.githubusercontent.com/AnninaDelacour/bachelor/main/images/gifs/windkarte.gif")
 
 
 # Color gradient for heatmap 

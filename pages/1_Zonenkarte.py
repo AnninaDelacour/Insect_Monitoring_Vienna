@@ -44,7 +44,7 @@ st.markdown(
     """, unsafe_allow_html=True)
 
 with st.expander("HOW TO USE THE MAP:"):
-    st.image("https://bachelor.blob.core.windows.net/newcontainer/zonenkartengif_neu.gif")
+    st.image("https://raw.githubusercontent.com/AnninaDelacour/bachelor/main//images/gifs/zonenkartengif_neu.gif")
 
 
 st.markdown("""_______________________________________ """)
@@ -144,7 +144,7 @@ else:
 
 #-------#-------#-------#-------#-------#-------#
 
-df = gpd.read_file("https://bachelor.blob.core.windows.net/newcontainer/tirol_power_plants.geojson")
+df = gpd.read_file("https://windenergie.blob.core.windows.net/geojson/power_plant.geojson")
 
 df["lon"] = df["geometry"].centroid.x
 df["lat"] = df["geometry"].centroid.y

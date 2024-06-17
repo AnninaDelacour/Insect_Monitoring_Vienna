@@ -48,8 +48,8 @@ st.markdown("")
 
 col1, col2 = st.columns(2)
 
-rasterlayer = 'https://bachelor.blob.core.windows.net/newcontainer/rasterlayer.png'
-layerraster = 'https://bachelor.blob.core.windows.net/newcontainer/layer_raster.png'
+rasterlayer = 'https://raw.githubusercontent.com/AnninaDelacour/bachelor/main/images/rasterlayer.png'
+layerraster = 'https://raw.githubusercontent.com/AnninaDelacour/bachelor/main/images/layer_raster.png'
 
 with col1:
     st.image(rasterlayer)

@@ -94,8 +94,8 @@ _________________________________________________________________
 
 st.header("Durchschnittliche Energiedichte")
 
-austria_power_density = 'https://raw.githubusercontent.com/AnninaDelacour/bachelor/main/gwa_img/at/gwa3_austria_mean-wind-power-density-at-200m.jpg'
-tirol_power_density = 'https://raw.githubusercontent.com/AnninaDelacour/bachelor/main/gwa_img/tirol/gwa3_tirol_mean-wind-power-density.jpg'
+austria_power_density = 'https://raw.githubusercontent.com/AnninaDelacour/bachelor/main/images/gwa_img/at/gwa3_austria_mean-wind-power-density-at-200m.jpg'
+tirol_power_density = 'https://raw.githubusercontent.com/AnninaDelacour/bachelor/main/images/gwa_img/tirol/gwa3_tirol_mean-wind-power-density.jpg'
 
 col3, col4 = st.columns(2)
 
@@ -137,8 +137,8 @@ _________________________________________________________________
 
 st.header("Roughness - Rauheit eines Geländes")
 
-austria_roughness = 'https://raw.githubusercontent.com/AnninaDelacour/bachelor/main/gwa_img/at/gwa3_austria_roughness.jpg'
-tirol_roughness = 'https://raw.githubusercontent.com/AnninaDelacour/bachelor/main/gwa_img/tirol/gwa3_austria_tirol_roughness.jpg'
+austria_roughness = 'https://raw.githubusercontent.com/AnninaDelacour/bachelor/main/images/gwa_img/at/gwa3_austria_roughness.jpg'
+tirol_roughness = 'https://raw.githubusercontent.com/AnninaDelacour/bachelor/main/images/gwa_img/tirol/gwa3_austria_tirol_roughness.jpg'
 
 col5, col6 = st.columns(2)
 
@@ -173,8 +173,8 @@ _________________________________________________________________
 
 st.header("Orographie - Die physische Geographie")
 
-austria_orography = 'https://raw.githubusercontent.com/AnninaDelacour/bachelor/main/gwa_img/at/gwa3_austria_elevation.jpg'
-tirol_orography = 'https://raw.githubusercontent.com/AnninaDelacour/bachelor/main/gwa_img/tirol/gwa3_tirol_elevation.jpg'
+austria_orography = 'https://raw.githubusercontent.com/AnninaDelacour/bachelor/main/images/gwa_img/at/gwa3_austria_elevation.jpg'
+tirol_orography = 'https://raw.githubusercontent.com/AnninaDelacour/bachelor/main/images/gwa_img/tirol/gwa3_tirol_elevation.jpg'
 
 col7, col8 = st.columns(2)
 
@@ -215,8 +215,8 @@ _________________________________________________________________
 st.header("Der Kapzitätsfaktor IEC - Klasse 3")
 
 
-austria_iec3 = 'https://raw.githubusercontent.com/AnninaDelacour/bachelor/main/gwa_img/at/gwa3_austria_capacity-factor-iec-class-3-1.jpg'
-tirol_iec3 = 'https://raw.githubusercontent.com/AnninaDelacour/bachelor/main/gwa_img/tirol/gwa3_tirol_capacity-factor-iec-class-3.jpg'
+austria_iec3 = 'https://raw.githubusercontent.com/AnninaDelacour/bachelor/main/images/gwa_img/at/gwa3_austria_capacity-factor-iec-class-3-1.jpg'
+tirol_iec3 = 'https://raw.githubusercontent.com/AnninaDelacour/bachelor/main/images/gwa_img/tirol/gwa3_tirol_capacity-factor-iec-class-3.jpg'
 
 col9, col10 = st.columns(2)
 
@@ -257,7 +257,7 @@ st.markdown("""
 _________________________________________________________________
 """)
 
-kaunertal = 'https://bachelor.blob.core.windows.net/newcontainer/kaunertal.jpeg'
+kaunertal = 'https://raw.githubusercontent.com/AnninaDelacour/bachelor/main/images/kaunertal.jpeg'
 
 
 col11, col12 = st.columns(2)
