@@ -62,8 +62,8 @@ st.header("Durchschnittliche Windgeschwindigkeiten")
 
 col1, col2 = st.columns(2)
 
-austria_wind_speed = 'https://raw.githubusercontent.com/AnninaDelacour/bachelor/main/gwa_img/at/gwa3_austria_mean-wind-speed-at-200m.jpg'
-tirol_wind_speed = 'https://raw.githubusercontent.com/AnninaDelacour/bachelor/main/gwa_img/tirol/gwa3_tirol_mean-wind-speed.jpg'
+austria_wind_speed = 'https://raw.githubusercontent.com/AnninaDelacour/bachelor/main/images/gwa_img/at/gwa3_austria_mean-wind-speed-at-200m.jpg'
+tirol_wind_speed = 'https://raw.githubusercontent.com/AnninaDelacour/bachelor/main/images/gwa_img/tirol/gwa3_tirol_mean-wind-speed.jpg'
 
 with col1:
     st.header("Tirol")
